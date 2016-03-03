@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MZMoreView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgd-wy-61s" customClass="MZMoreView">
+                    <rect key="frame" x="0.0" y="422" width="600" height="178"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeK-X5-c6K">
+                            <rect key="frame" x="511" y="-25" width="49" height="49"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="AGH-5A-M1v"/>
+                            </constraints>
+                            <color key="tintColor" red="0.93725490199999995" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" image="main_cancel">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="AGH-5A-M1v"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="didClickCancelButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="wY2-BJ-qqy"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择需要的操作" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t2-Uc-GFM">
+                            <rect key="frame" x="35" y="12" width="119" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.43529411764705883" green="0.50588235294117645" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQ6-Fa-9Wx">
+                            <rect key="frame" x="35" y="45" width="530" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="B4z-qb-4qz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="删除照片">
+                                <color key="titleColor" red="0.43529411764705883" green="0.50588235294117645" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="B4z-qb-4qz"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="didClickRemoveButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="blj-Wr-WJb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yh-VR-C0l">
+                            <rect key="frame" x="35" y="106" width="530" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="oAg-Ge-tXb"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="举报">
+                                <color key="titleColor" red="0.43529411759999997" green="0.50588235290000005" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="oAg-Ge-tXb"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="didClickReportButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Cb6-iy-ZZU"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="5yh-VR-C0l" firstAttribute="leading" secondItem="zgd-wy-61s" secondAttribute="leading" constant="35" id="1w2-qA-fl7"/>
+                        <constraint firstItem="oeK-X5-c6K" firstAttribute="leading" secondItem="zgd-wy-61s" secondAttribute="leading" constant="35" id="2bP-nV-rwf"/>
+                        <constraint firstItem="oQ6-Fa-9Wx" firstAttribute="width" secondItem="5yh-VR-C0l" secondAttribute="width" id="2eJ-da-Uq0"/>
+                        <constraint firstAttribute="trailing" secondItem="oQ6-Fa-9Wx" secondAttribute="trailing" constant="35" id="AOV-CW-haV"/>
+                        <constraint firstAttribute="trailing" secondItem="oeK-X5-c6K" secondAttribute="trailing" constant="40" id="BRV-J9-Zky"/>
+                        <constraint firstItem="7t2-Uc-GFM" firstAttribute="leading" secondItem="zgd-wy-61s" secondAttribute="leading" constant="35" id="Dns-hx-xzP"/>
+                        <constraint firstItem="5yh-VR-C0l" firstAttribute="width" secondItem="oQ6-Fa-9Wx" secondAttribute="width" id="IQJ-EG-sm5"/>
+                        <constraint firstItem="5yh-VR-C0l" firstAttribute="height" secondItem="oQ6-Fa-9Wx" secondAttribute="height" id="Jdt-ry-4gQ"/>
+                        <constraint firstItem="5yh-VR-C0l" firstAttribute="top" secondItem="oQ6-Fa-9Wx" secondAttribute="bottom" constant="13" id="MDW-Xd-aYj"/>
+                        <constraint firstAttribute="height" constant="178" id="MJG-ZQ-FJK"/>
+                        <constraint firstItem="5yh-VR-C0l" firstAttribute="trailing" secondItem="oQ6-Fa-9Wx" secondAttribute="trailing" constant="-400" id="Nfc-a4-JYg"/>
+                        <constraint firstItem="7t2-Uc-GFM" firstAttribute="top" secondItem="oQ6-Fa-9Wx" secondAttribute="bottom" constant="-31" id="PX3-wF-Le2"/>
+                        <constraint firstItem="oQ6-Fa-9Wx" firstAttribute="top" secondItem="7t2-Uc-GFM" secondAttribute="bottom" constant="12" id="R2Y-K2-rmO"/>
+                        <constraint firstItem="7t2-Uc-GFM" firstAttribute="top" secondItem="zgd-wy-61s" secondAttribute="top" constant="12" id="TIe-Yc-CGy"/>
+                        <constraint firstAttribute="trailing" secondItem="5yh-VR-C0l" secondAttribute="trailing" constant="35" id="Vas-4T-3hE"/>
+                        <constraint firstItem="oQ6-Fa-9Wx" firstAttribute="top" secondItem="zgd-wy-61s" secondAttribute="top" constant="12" id="WaB-Nu-R6f"/>
+                        <constraint firstItem="5yh-VR-C0l" firstAttribute="top" secondItem="zgd-wy-61s" secondAttribute="top" id="Xdp-o7-JB7"/>
+                        <constraint firstAttribute="bottom" secondItem="5yh-VR-C0l" secondAttribute="bottom" constant="25" id="hVb-vn-s98"/>
+                        <constraint firstItem="oQ6-Fa-9Wx" firstAttribute="leading" secondItem="5yh-VR-C0l" secondAttribute="trailing" id="iih-CC-yjN"/>
+                        <constraint firstItem="oQ6-Fa-9Wx" firstAttribute="centerX" secondItem="7t2-Uc-GFM" secondAttribute="centerX" id="mEX-Nv-yWF"/>
+                        <constraint firstItem="oQ6-Fa-9Wx" firstAttribute="leading" secondItem="zgd-wy-61s" secondAttribute="leading" constant="35" id="sAJ-TX-p95"/>
+                        <constraint firstItem="oeK-X5-c6K" firstAttribute="top" secondItem="zgd-wy-61s" secondAttribute="top" constant="-25" id="un0-e6-sEu"/>
+                        <constraint firstAttribute="bottom" secondItem="oeK-X5-c6K" secondAttribute="bottom" constant="20" id="y4b-3R-bSJ"/>
+                        <constraint firstItem="oQ6-Fa-9Wx" firstAttribute="leading" secondItem="5yh-VR-C0l" secondAttribute="trailing" id="zYh-oK-i97"/>
+                        <constraint firstItem="5yh-VR-C0l" firstAttribute="top" secondItem="oQ6-Fa-9Wx" secondAttribute="bottom" constant="-120" id="zqd-Wf-80v"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="PX3-wF-Le2"/>
+                            <exclude reference="2eJ-da-Uq0"/>
+                            <exclude reference="WaB-Nu-R6f"/>
+                            <exclude reference="iih-CC-yjN"/>
+                            <exclude reference="mEX-Nv-yWF"/>
+                            <exclude reference="zYh-oK-i97"/>
+                            <exclude reference="IQJ-EG-sm5"/>
+                            <exclude reference="Nfc-a4-JYg"/>
+                            <exclude reference="Xdp-o7-JB7"/>
+                            <exclude reference="zqd-Wf-80v"/>
+                            <exclude reference="2bP-nV-rwf"/>
+                            <exclude reference="y4b-3R-bSJ"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="zgd-wy-61s" secondAttribute="trailing" id="dkD-14-AHI"/>
+                <constraint firstAttribute="bottom" secondItem="zgd-wy-61s" secondAttribute="bottom" id="hZK-7b-hYU"/>
+                <constraint firstItem="zgd-wy-61s" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vuB-zX-AtL"/>
+            </constraints>
+            <connections>
+                <outlet property="cancelButton" destination="oeK-X5-c6K" id="vpX-YQ-A2p"/>
+                <outlet property="customView" destination="zgd-wy-61s" id="r1x-2d-36k"/>
+                <outlet property="removeButton" destination="oQ6-Fa-9Wx" id="IEh-IO-jSM"/>
+                <outlet property="removeLabel" destination="7t2-Uc-GFM" id="Ipj-fj-4Ij"/>
+                <outlet property="reportButton" destination="5yh-VR-C0l" id="xkt-3i-6aN"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="main_cancel" width="49" height="49"/>
+    </resources>
+</document>

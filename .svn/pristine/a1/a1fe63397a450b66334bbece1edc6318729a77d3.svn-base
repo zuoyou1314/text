@@ -1,0 +1,110 @@
+//
+//  MZFeedbackViewController.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/30.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZFeedbackViewController.h"
+
+@interface MZFeedbackViewController ()<UITextViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextView *feedbackTextView;
+@property (weak, nonatomic) IBOutlet UILabel *feedbackLabel;
+@property (weak, nonatomic) IBOutlet UITextView *phoneTextView;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+
+
+@end
+
+@implementation MZFeedbackViewController
+
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        self.view = [[[NSBundle mainBundle] loadNibNamed:@"MZFeedbackViewController" owner:self options:nil] lastObject];
+        [self setUIDef];
+    }
+    return self;
+}
+
+- (void)setUIDef
+{
+    self.title = @"意见与反馈";
+    [self  setNavigationDefaultLeftBarButton];
+    self.view.backgroundColor = [UIColor colorWithRed:243.0f/255.0f green:253.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc]initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(didClickRightBarItem)];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+    
+    _feedbackTextView.layer.borderColor = [[UIColor colorWithRed:194.0f/255.0f green:195.0f/255.0f blue:196.0f/255.0f alpha:1.0f]CGColor];
+    _feedbackTextView.layer.borderWidth= 1.0f;
+    _feedbackTextView.layer.cornerRadius = 8;
+    _feedbackTextView.delegate = self;
+    _feedbackTextView.tag = 2000;
+    _feedbackTextView.layer.masksToBounds = YES;
+    
+    
+    _phoneTextView.layer.borderColor = [[UIColor colorWithRed:194.0f/255.0f green:195.0f/255.0f blue:196.0f/255.0f alpha:1.0f]CGColor];
+    _phoneTextView.layer.borderWidth= 1.0f;
+    _phoneTextView.layer.cornerRadius = 8;
+    _phoneTextView.delegate = self;
+    _phoneTextView.tag = 3000;
+    _phoneTextView.layer.masksToBounds = YES;
+    
+    
+}
+
+
+#pragma mark ------UITextViewDelegate
+- (void)textViewDidChange:(UITextView *)textView
+{
+    _feedbackLabel.text = textView.text;
+    _phoneLabel.text = textView.text;
+    
+    if (textView.text.length == 0){
+        _feedbackLabel.text = @"在这里填写图什么的意见,我们将不断的改进,感谢您的支持!";
+        _phoneLabel.text = @"手机或QQ (选填)";
+    }else{
+        if (textView.tag == 2000) {
+            _feedbackLabel.text = @"";
+            _phoneLabel.text = @"手机或QQ (选填)";
+        }else{
+            _phoneLabel.text = @"";
+            _feedbackLabel.text = @"在这里填写图什么的意见,我们将不断的改进,感谢您的支持!";
+        }
+   
+        
+    }
+}
+#pragma end ------UITextViewDelegate
+
+
+- (void)didClickRightBarItem
+{
+    NSLog(@"发送");
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

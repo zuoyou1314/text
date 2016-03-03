@@ -1,0 +1,38 @@
+//
+//  MZRegisterPhoneParam.m
+//  MZTuShenMa
+//
+//  Created by Wangxin on 15/8/27.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZRegisterPhoneParam.h"
+#import "UserHelp.h"
+
+@implementation MZRegisterPhoneParam
+
+- (NSMutableDictionary *)bindRequestParam
+{
+    NSMutableDictionary *dict = [super bindRequestParam];
+    
+    if([[UserHelp sharedUserHelper] userName])
+    {
+        [dict setObject:[[UserHelp sharedUserHelper] userName] forKey:@"phone"];
+    }
+    if([[UserHelp sharedUserHelper] passWord])
+    {
+        [dict setObject:[[UserHelp sharedUserHelper] passWord] forKey:@"pass"];
+    }
+    [dict setObject:@"1" forKey:@"way"];
+    
+    [dict setObject:[kRegisterPhone base64Encode] forKey:AUTHCODE];
+    
+    return dict;
+}
+
+- (NSString *)bindRequestPath
+{
+    return kRegisterPhone;
+}
+
+@end

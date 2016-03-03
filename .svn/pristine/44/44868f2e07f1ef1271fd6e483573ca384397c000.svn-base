@@ -1,0 +1,21 @@
+//
+//  MZPraisePersonCollectionViewCell.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/28.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZPraisePersonCollectionViewCell.h"
+
+@implementation MZPraisePersonCollectionViewCell
+
+- (void)awakeFromNib {
+    // Initialization code
+    _headImage.layer.cornerRadius =CGRectGetHeight([_headImage bounds])/2;
+    
+    _headImage.layer.masksToBounds = YES;
+    
+}
+
+@end

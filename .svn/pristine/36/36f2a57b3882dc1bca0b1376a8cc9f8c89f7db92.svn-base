@@ -1,0 +1,27 @@
+//
+//  MZPraisePersonTableViewCell.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/28.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZPraisePersonTableViewCell.h"
+
+@implementation MZPraisePersonTableViewCell
+
+- (void)awakeFromNib {
+    // Initialization code
+    _praisePersonView = [[MZPraisePersonCollectionView alloc] initWithFrame:rect(20, 0, SCREEN_WIDTH-40.0f, 70)];
+    _praisePersonView.backgroundColor = [UIColor clearColor];
+    [self addSubview:_praisePersonView];
+    
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end

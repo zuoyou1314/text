@@ -1,0 +1,61 @@
+//
+//  MZloginViewController.m
+//  MZTuShenMa
+//
+//  Created by Wangxin on 15/8/24.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZloginViewController.h"
+#import "MZRegisterViewController.h"
+#import "MZHomeFootAnimationButton.h"
+
+@interface MZloginViewController ()
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftHeightConstraionts;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightHeightConstraionts;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *phoneNumLoginButton;
+@property (weak, nonatomic) IBOutlet UIImageView *backImageView;
+@end
+
+@implementation MZloginViewController
+
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        self.view = [[[NSBundle mainBundle] loadNibNamed:@"MZloginViewController" owner:self options:nil] lastObject];
+        [self setUIDef];
+    }
+    return self;
+}
+
+- (void) setUIDef
+{
+    self.leftHeightConstraionts.constant = .4f;
+    self.rightHeightConstraionts.constant = .4f;
+    [self.loginButton.layer setCornerRadius:25.0f];
+    [self.phoneNumLoginButton.layer setCornerRadius:25.0f];
+    [self.loginButton.layer setBorderWidth:1.0f];
+    [self.loginButton.layer setBorderColor:[self.loginButton titleColorForState:UIControlStateNormal].CGColor];
+    if(iPhone5) [self.backImageView setImage:[UIImage imageNamed:@"bj"]];
+    if(iPhone6 || iPhone6P) [self.backImageView setImage:[UIImage imageNamed:@"bjiPhone6"]];
+}
+- (IBAction)loginButtonTouchUpInside:(id)sender
+{
+    if(sender && [sender isKindOfClass:[UIButton class]])
+    {
+        MZRegisterViewController *controller = [[MZRegisterViewController alloc] init];
+        [controller setIsNew:[(UIButton *)sender tag]];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
+@end

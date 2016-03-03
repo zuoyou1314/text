@@ -1,0 +1,29 @@
+//
+//  MZNeedRegisteViewController.m
+//  MZTuShenMa
+//
+//  Created by Wangxin on 15/8/26.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZNeedRegisteViewController.h"
+
+@interface MZNeedRegisteViewController ()
+
+@property (weak, nonatomic) IBOutlet UIButton *registeButton;
+@end
+
+@implementation MZNeedRegisteViewController
+
+
+- (instancetype)init
+{
+    if(self = [super init])
+    {
+        self.view = [[[NSBundle mainBundle] loadNibNamed:@"MZNeedRegisteViewController" owner:self options:nil] lastObject];
+        [self.registeButton.layer setCornerRadius:25.0f];
+    }
+    return self;
+}
+
+@end

@@ -1,0 +1,42 @@
+ //
+//  MZCreateAlbumParam.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/31.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZCreateAlbumParam.h"
+
+@implementation MZCreateAlbumParam
+
+- (NSMutableDictionary *)bindRequestParam
+{
+    NSMutableDictionary *dict = [super bindRequestParam];
+    
+    if(self.user_id)
+    {
+        [dict setObject:self.user_id forKey:@"user_id"];
+    }
+    if(self.album_name)
+    {
+        [dict setObject:self.album_name forKey:@"album_name"];
+    }
+    if(self.album_des)
+    {
+        [dict setObject:self.album_des forKey:@"album_des"];
+    }
+
+    
+    
+    [dict setObject:[kCreateAlbum base64Encode] forKey:AUTHCODE];
+    
+    return dict;
+}
+
+- (NSString *)bindRequestPath
+{
+    return kCreateAlbum;
+}
+
+@end

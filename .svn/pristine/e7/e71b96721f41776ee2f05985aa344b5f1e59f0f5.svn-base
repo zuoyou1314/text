@@ -1,0 +1,22 @@
+//
+//  UserHelp.m
+//  MZTuShenMa
+//
+//  Created by Wangxin on 15/8/27.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "UserHelp.h"
+
+@implementation UserHelp
+
++ (instancetype)sharedUserHelper
+{
+    static UserHelp *sharedUserHelper = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedUserHelper = [[UserHelp alloc] init];
+    });
+    return sharedUserHelper;
+}
+@end

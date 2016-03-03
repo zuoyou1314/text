@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MZDrawerView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U24-XX-UEy">
+                    <rect key="frame" x="0.0" y="0.0" width="190" height="600"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_head.png" translatesAutoresizingMaskIntoConstraints="NO" id="yG4-VM-zmY">
+                            <rect key="frame" x="68" y="48" width="55" height="55"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="55" id="6YU-fX-7Xt"/>
+                                <constraint firstAttribute="height" constant="55" id="F8Q-DE-28u"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a50-VT-UzD">
+                            <rect key="frame" x="76" y="112" width="39" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y4E-l1-p83">
+                            <rect key="frame" x="20" y="141" width="150" height="1"/>
+                            <color key="backgroundColor" red="0.17254901960784313" green="0.20392156862745098" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="UEv-CA-JJH"/>
+                                <constraint firstAttribute="width" constant="150" id="qrv-95-uqe"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.10980392156862745" green="0.12941176470588234" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="yG4-VM-zmY" firstAttribute="leading" secondItem="U24-XX-UEy" secondAttribute="leading" constant="68" id="BZF-xP-Ud3"/>
+                        <constraint firstAttribute="width" constant="190" id="FS0-yJ-OgI"/>
+                        <constraint firstItem="a50-VT-UzD" firstAttribute="centerX" secondItem="yG4-VM-zmY" secondAttribute="centerX" id="GEV-lc-ntt"/>
+                        <constraint firstItem="a50-VT-UzD" firstAttribute="top" secondItem="yG4-VM-zmY" secondAttribute="bottom" constant="9" id="HAX-lz-HqW"/>
+                        <constraint firstAttribute="width" constant="190" id="Vd5-qp-f78"/>
+                        <constraint firstItem="yG4-VM-zmY" firstAttribute="top" secondItem="U24-XX-UEy" secondAttribute="top" constant="48" id="ciu-Mk-irG"/>
+                        <constraint firstItem="Y4E-l1-p83" firstAttribute="leading" secondItem="U24-XX-UEy" secondAttribute="leading" constant="20" id="d24-6g-4wg"/>
+                        <constraint firstItem="Y4E-l1-p83" firstAttribute="top" secondItem="a50-VT-UzD" secondAttribute="bottom" constant="13" id="fiI-Xh-fO5"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Vd5-qp-f78"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="U24-XX-UEy" secondAttribute="trailing" id="CL2-OF-OtB"/>
+                <constraint firstItem="U24-XX-UEy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IqW-m9-tXk"/>
+                <constraint firstAttribute="bottom" secondItem="U24-XX-UEy" secondAttribute="bottom" id="MFZ-3L-uVn"/>
+                <constraint firstItem="U24-XX-UEy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lGa-Tg-SC9"/>
+                <constraint firstItem="U24-XX-UEy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="130" id="tN4-jk-Fwi"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="CL2-OF-OtB"/>
+                    <exclude reference="tN4-jk-Fwi"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="customDrawerView" destination="U24-XX-UEy" id="Gid-mh-qkE"/>
+                <outlet property="headImage" destination="yG4-VM-zmY" id="dXO-b5-iYm"/>
+                <outlet property="lineHeight" destination="UEv-CA-JJH" id="vB5-8G-GyW"/>
+                <outlet property="lineView" destination="Y4E-l1-p83" id="GgC-vU-XK5"/>
+                <outlet property="nameLabel" destination="a50-VT-UzD" id="gLH-93-Ddb"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="main_head.png" width="50" height="50"/>
+    </resources>
+</document>

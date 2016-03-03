@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MZAboutWeViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="edO-cD-knm">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="和你的朋友一起玩的相册" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKj-dE-Opa">
+                    <rect key="frame" x="0.0" y="475" width="600" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.2901960784" green="0.33725490200000002" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本 3.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXV-fx-rAx">
+                    <rect key="frame" x="0.0" y="500" width="600" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.68627450980000004" green="0.72156862749999995" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_abwe.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zg5-0w-W5g">
+                    <rect key="frame" x="170" y="200" width="260" height="260"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Zg5-0w-W5g" secondAttribute="height" multiplier="1:1" id="Anf-F7-GLA"/>
+                        <constraint firstAttribute="height" constant="75" id="pGn-tD-2zu"/>
+                        <constraint firstAttribute="height" constant="75" id="xS0-sM-i6V"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="pGn-tD-2zu"/>
+                            <exclude reference="xS0-sM-i6V"/>
+                        </mask>
+                    </variation>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="vXV-fx-rAx" secondAttribute="trailing" id="0v8-2S-PoG"/>
+                <constraint firstItem="UKj-dE-Opa" firstAttribute="leading" secondItem="edO-cD-knm" secondAttribute="leading" id="Cei-OB-lm7"/>
+                <constraint firstItem="UKj-dE-Opa" firstAttribute="top" secondItem="Zg5-0w-W5g" secondAttribute="bottom" constant="15" id="EWl-vQ-uDw"/>
+                <constraint firstItem="Zg5-0w-W5g" firstAttribute="leading" secondItem="edO-cD-knm" secondAttribute="leading" constant="170" id="Rsa-El-S0H"/>
+                <constraint firstAttribute="trailing" secondItem="UKj-dE-Opa" secondAttribute="trailing" id="Sf5-N8-H3g"/>
+                <constraint firstAttribute="trailing" secondItem="Zg5-0w-W5g" secondAttribute="trailing" constant="170" id="XNt-ce-8Sd"/>
+                <constraint firstItem="vXV-fx-rAx" firstAttribute="leading" secondItem="edO-cD-knm" secondAttribute="leading" id="juN-bO-Bt7"/>
+                <constraint firstItem="Zg5-0w-W5g" firstAttribute="top" secondItem="edO-cD-knm" secondAttribute="top" constant="200" id="kNR-uI-Duu"/>
+                <constraint firstItem="vXV-fx-rAx" firstAttribute="top" secondItem="UKj-dE-Opa" secondAttribute="bottom" constant="10" id="pp0-rl-eF6"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="main_abwe.png" width="115" height="115"/>
+    </resources>
+</document>

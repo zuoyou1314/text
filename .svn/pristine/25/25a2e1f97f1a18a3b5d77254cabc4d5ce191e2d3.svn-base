@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E2E11B9F-8BFE-4331-8F09-0A63528D4D5C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MZTuShenMa</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>ec1dcfaa-c116-4126-8cd0-4f78c3766cfd++5348</key>
+		<string>http://211.155.85.153:8080/front/%2525252525E5%25252525259B%2525252525BE%2525252525E5%252525252598%25252525259Bapp%2525252525E9%2525252525A1%2525252525B9%2525252525E7%25252525259B%2525252525AE/MZTuShenMa</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MZTuShenMa.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>ec1dcfaa-c116-4126-8cd0-4f78c3766cfd++5348</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>ec1dcfaa-c116-4126-8cd0-4f78c3766cfd++5348</key>
+		<string>http://211.155.85.153:8080/front</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://211.155.85.153:8080/front/%2525252525E5%25252525259B%2525252525BE%2525252525E5%252525252598%25252525259Bapp%2525252525E9%2525252525A1%2525252525B9%2525252525E7%25252525259B%2525252525AE/MZTuShenMa/MZTuShenMa.xcworkspace</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>ec1dcfaa-c116-4126-8cd0-4f78c3766cfd++5348</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>ec1dcfaa-c116-4126-8cd0-4f78c3766cfd++5348</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MZTuShenMa%2014-58-15-186</string>
+		</dict>
+	</array>
+</dict>
+</plist>

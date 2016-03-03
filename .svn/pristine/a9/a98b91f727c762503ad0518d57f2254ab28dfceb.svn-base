@@ -1,0 +1,146 @@
+//
+//  MZDrawerVIew.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/29.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZDrawerView.h"
+
+@interface MZDrawerView ()<UITableViewDelegate,UITableViewDataSource>
+
+{
+    
+
+}
+@property (weak, nonatomic) IBOutlet UIView *customDrawerView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *headImage;
+
+@property (weak, nonatomic) IBOutlet UIView *lineView;
+
+@end
+
+
+@implementation MZDrawerView
+
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        self = [[[NSBundle mainBundle] loadNibNamed:@"MZDrawerView" owner:self options:nil] lastObject];
+        [self setUIDef];
+    }
+    return self;
+}
+
+- (void)setUIDef
+{
+    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
+    
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(_lineView.frame.origin.x,_lineView.frame.origin.y +_lineView.frame.size.height, 150.0f, 225.0f) style:UITableViewStylePlain];
+    tableView.backgroundColor = [UIColor colorWithRed:28.0f/255.0f green:33.0f/255.0f blue:35.0f/255.0f alpha:1.0f];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [_customDrawerView addSubview:tableView];
+    tableView.tableFooterView = [[UIView alloc]init];
+    
+    
+}
+
+- (void)show
+{
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [window addSubview:self];
+    
+
+    _customDrawerView.frame = CGRectMake(-190, 0, 190, SCREEN_HEIGHT);
+    
+    [UIView animateWithDuration:0.5 animations:^{
+
+          _customDrawerView.frame = CGRectMake(0, 0, 190, SCREEN_HEIGHT);
+        
+    } completion:^(BOOL finished) {
+        
+      
+        
+    }];
+    
+}
+
+- (void)dismiss
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        _customDrawerView.frame = CGRectMake(-190, 0, 190, SCREEN_HEIGHT);
+    } completion:^(BOOL finished) {
+        
+        [self removeFromSuperview];
+    }];
+}
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self dismiss];
+}
+
+
+
+#pragma mark ----- UITableViewDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 45;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *nameArray = @[@"我的消息",@"设置",@"APP Store评分",@"客服与反馈",@"关于我们"];
+    static NSString *identifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    cell.backgroundColor = [UIColor colorWithRed:28.0f/255.0f green:33.0f/255.0f blue:35.0f/255.0f alpha:1.0f];
+    
+    cell.imageView.image = [UIImage imageNamed:@"main_head"];
+    cell.imageView.layer.cornerRadius = CGRectGetHeight([cell.imageView frame])/2;
+    cell.imageView.layer.masksToBounds = YES;
+    cell.textLabel.text = nameArray[indexPath.row];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    cell.selectionStyle
+    return cell;
+
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    MZDynamicDetailViewController *dynamicDetailVC = [[MZDynamicDetailViewController alloc]init];
+    //    [self.navigationController pushViewController:dynamicDetailVC animated:YES];
+    [self dismiss];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (_drawerDelegate  &&[_drawerDelegate respondsToSelector:@selector(didClickCellWithRow:)]) {
+            [_drawerDelegate  didClickCellWithRow:indexPath.row];
+        }
+    });
+    
+
+    
+    
+}
+
+
+@end

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="KGk-i7-Jjw" customClass="DynamicCommentTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_backImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="CQb-2v-RKZ">
+                        <rect key="frame" x="13" y="6" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="VAc-kH-zdM"/>
+                            <constraint firstAttribute="height" constant="22" id="dkb-w4-E8e"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小太阳:这次玩的太开心了!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cb-zV-QpU">
+                        <rect key="frame" x="40" y="0.0" width="267" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="3cb-zV-QpU" secondAttribute="trailing" constant="5" id="1Oc-DK-cA1"/>
+                    <constraint firstItem="3cb-zV-QpU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="1dz-pB-7b5"/>
+                    <constraint firstItem="3cb-zV-QpU" firstAttribute="centerY" secondItem="CQb-2v-RKZ" secondAttribute="centerY" id="2k3-lx-fts"/>
+                    <constraint firstItem="CQb-2v-RKZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="6wq-Dd-UNw"/>
+                    <constraint firstAttribute="centerY" secondItem="CQb-2v-RKZ" secondAttribute="centerY" id="8dL-Mz-agF"/>
+                    <constraint firstItem="3cb-zV-QpU" firstAttribute="leading" secondItem="CQb-2v-RKZ" secondAttribute="trailing" constant="5" id="8z9-8g-BIy"/>
+                    <constraint firstAttribute="centerY" secondItem="CQb-2v-RKZ" secondAttribute="centerY" id="DN9-dZ-YhC"/>
+                    <constraint firstItem="CQb-2v-RKZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="FQu-Tz-3TH"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="3cb-zV-QpU" secondAttribute="bottom" constant="-8" id="hYf-nb-Pxt"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="DN9-dZ-YhC"/>
+                        <exclude reference="FQu-Tz-3TH"/>
+                        <exclude reference="2k3-lx-fts"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="3cb-zV-QpU" id="PHz-9b-VR1"/>
+                <outlet property="iconImage" destination="CQb-2v-RKZ" id="X7u-38-3Mf"/>
+                <outlet property="lineView" destination="H2p-sc-9uM" id="wZc-RS-cbn"/>
+            </connections>
+            <point key="canvasLocation" x="506" y="315.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="main_backImage.png" width="50" height="50"/>
+    </resources>
+</document>

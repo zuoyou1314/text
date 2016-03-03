@@ -1,0 +1,48 @@
+/* Navigation bar buttons */
+"Cancel" = "取消";
+"Done" = "完成";
+
+/* Default title */
+"Photos" = "图库";
+
+/* No. of selected */
+"%ld Photo Selected" = "您已选择%ld张照片";
+"%ld Photos Selected" = "您已选择%ld张照片";
+"%ld Video Selected" = "您已选择%ld部视频";
+"%ld Videos Selected" = "您已选择%ld部视频";
+"%ld Items Selected" = "您已选择%ld条记录";
+
+/* Album's footer */
+"%ld Photos" = "%ld 张照片";
+"%ld Videos" = "%ld 部视频";
+"%ld Photos, %ld Videos" = "%1$ld 张照片, %2$ld 部视频";
+
+/* Assets index */
+"%ld of %ld" = "%1$ld of %2$ld";
+
+/* Messages if privacy is not granted */
+"This app does not have access to your photos or videos." = "亲，您的App不能访问图库哟";
+"You can enable access in Privacy Settings." = "亲，您被禁止访问私密内容哟";
+
+/* Messages if no assets */
+"No Photos or Videos" = "亲，图库空空如也，去拍点东西吧";
+
+/* The parameter will be replaced by the device model name */
+"You can take photos and videos using the camera, or sync photos and videos onto your %@\nusing iTunes." = "您可以选择用镜头记录些点滴塞满图库，或者用iTunes同步一些照片或者视频过来发动态哟";
+"You can sync photos and videos onto your %@ using iTunes." = "您可以用iTunes同步一些照片或者视频过来发动态哟";
+
+/* Accessibility labels */
+"Photo" = "照片";
+"Video" = "视频";
+"Portrait" = "纵向";
+"Landscape" = "横向";
+"Play" = "播放";
+"Not available" = "不可用";
+
+/* Video duration spell out */
+"hours" = "时";
+"hour" = "时";
+"minutes" = "分";
+"minute" = "分";
+"seconds" = "秒";
+"second" = "秒";

@@ -1,0 +1,31 @@
+//
+//  RequestInferface.h
+//  ZhiXuan
+//
+//  Created by Wangxin on 15/6/5.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#ifndef ZhiXuan_RequestInferface_h
+#define ZhiXuan_RequestInferface_h
+#import <Foundation/Foundation.h>
+// -- MARK: 请求host
+static NSString * const kHost = @"http://tushenme.yuntumingzhi.cn";
+// -- MARK: 请求端口号
+static NSString * const kPort = @"80";
+// -- MARK: 登录接口的固定盐值
+static NSString * const kLoginAuth = @"ytzhixuan20";
+
+// -- MARK: ------------------------------------- 请求地址 -----------------------------------------
+// -- MARK: 共用字段名
+#define AUTHCODE @"authcode"
+// -- MARK: 登录
+static NSString * const kLogin      = @"LoginApi/login";
+// -- MARk: 手机号验证码
+static NSString * const kPhoneValidate = @"LoginApi/phone_validate";
+// -- MARK: 注册
+static NSString * const kRegisterPhone = @"LoginApi/register_phone";
+// -- MARK: 创建相册
+static NSString * const kCreateAlbum = @"AlbumApi/create_album";
+
+#endif

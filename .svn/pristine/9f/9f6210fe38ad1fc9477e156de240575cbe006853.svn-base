@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MZMainSortView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lhh-JK-Tnp">
+                    <rect key="frame" x="0.0" y="365" width="600" height="235"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择相册排列方式" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXr-yN-4pS">
+                            <rect key="frame" x="35" y="12" width="136" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.88235294117647056" green="0.24705882352941178" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGI-FX-jJ5">
+                            <rect key="frame" x="35" y="45" width="530" height="48"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="按相册创建时间">
+                                <color key="titleColor" red="0.43529411764705883" green="0.50588235294117645" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didClickCreatePhotoButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ldo-JI-ygn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pY-vn-8ny">
+                            <rect key="frame" x="35" y="106" width="530" height="48"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="按相册更新时间">
+                                <color key="titleColor" red="0.43529411759999997" green="0.50588235290000005" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didClickUpdatePhotoButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ul8-U9-P2R"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJK-te-M9a">
+                            <rect key="frame" x="35" y="167" width="530" height="48"/>
+                            <color key="backgroundColor" red="0.89411764705882346" green="0.37254901960784315" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="取消">
+                                <color key="titleColor" red="0.94901960784313721" green="0.9882352941176471" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didClickCancelButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="vlU-CJ-t3J"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.95294117647058818" green="0.99215686274509807" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="uJK-te-M9a" firstAttribute="top" secondItem="8pY-vn-8ny" secondAttribute="bottom" constant="13" id="0TS-Gx-d36"/>
+                        <constraint firstItem="uJK-te-M9a" firstAttribute="leading" secondItem="lhh-JK-Tnp" secondAttribute="leading" constant="35" id="1sU-5N-76D"/>
+                        <constraint firstItem="sGI-FX-jJ5" firstAttribute="leading" secondItem="lhh-JK-Tnp" secondAttribute="leading" constant="35" id="3vJ-l2-fu5"/>
+                        <constraint firstAttribute="trailing" secondItem="8pY-vn-8ny" secondAttribute="trailing" constant="35" id="8h2-ah-mKv"/>
+                        <constraint firstItem="YXr-yN-4pS" firstAttribute="top" secondItem="lhh-JK-Tnp" secondAttribute="top" constant="12" id="FSO-AE-oy1"/>
+                        <constraint firstAttribute="bottom" secondItem="uJK-te-M9a" secondAttribute="bottom" constant="20" id="Jzo-lT-atK"/>
+                        <constraint firstItem="uJK-te-M9a" firstAttribute="height" secondItem="8pY-vn-8ny" secondAttribute="height" id="LGh-Ov-83i"/>
+                        <constraint firstItem="YXr-yN-4pS" firstAttribute="leading" secondItem="lhh-JK-Tnp" secondAttribute="leading" constant="35" id="QEf-5M-hZO"/>
+                        <constraint firstItem="sGI-FX-jJ5" firstAttribute="top" secondItem="YXr-yN-4pS" secondAttribute="bottom" constant="12" id="SAv-5r-lkr"/>
+                        <constraint firstItem="8pY-vn-8ny" firstAttribute="leading" secondItem="lhh-JK-Tnp" secondAttribute="leading" constant="35" id="V8x-kT-UIN"/>
+                        <constraint firstAttribute="height" constant="235" id="Wan-6p-fPW"/>
+                        <constraint firstAttribute="trailing" secondItem="uJK-te-M9a" secondAttribute="trailing" constant="35" id="cfR-nN-gkK"/>
+                        <constraint firstItem="8pY-vn-8ny" firstAttribute="height" secondItem="sGI-FX-jJ5" secondAttribute="height" id="dfY-PO-oE0"/>
+                        <constraint firstItem="8pY-vn-8ny" firstAttribute="top" secondItem="sGI-FX-jJ5" secondAttribute="bottom" constant="13" id="zDb-2D-7LB"/>
+                        <constraint firstAttribute="trailing" secondItem="sGI-FX-jJ5" secondAttribute="trailing" constant="35" id="zyS-sJ-srR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="lhh-JK-Tnp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0gA-QR-AQY"/>
+                <constraint firstItem="lhh-JK-Tnp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5Vu-Jg-ub8"/>
+                <constraint firstItem="lhh-JK-Tnp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="335" id="LYP-BR-XX4"/>
+                <constraint firstAttribute="bottom" secondItem="lhh-JK-Tnp" secondAttribute="bottom" id="cZT-6j-g8u"/>
+                <constraint firstAttribute="trailing" secondItem="lhh-JK-Tnp" secondAttribute="trailing" id="pqL-20-e1r"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="0gA-QR-AQY"/>
+                    <exclude reference="LYP-BR-XX4"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="cancelButton" destination="uJK-te-M9a" id="XsT-GH-DCI"/>
+                <outlet property="creatPhotoButton" destination="sGI-FX-jJ5" id="VGx-i7-gMn"/>
+                <outlet property="customAlertView" destination="lhh-JK-Tnp" id="u6t-BR-hEV"/>
+                <outlet property="updatePhotoButton" destination="8pY-vn-8ny" id="UPX-zL-REK"/>
+            </connections>
+        </view>
+    </objects>
+</document>

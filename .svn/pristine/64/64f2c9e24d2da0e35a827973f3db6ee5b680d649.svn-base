@@ -1,0 +1,268 @@
+//
+//  MZDynamicDetailViewController.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/25.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZDynamicDetailViewController.h"
+#import "DynamicListTableViewCell.h"
+#import "DynamicCommentTableViewCell.h"
+#import "MZPraisePersonTableViewCell.h"
+#import "MZMessageViewController.h"
+@interface MZDynamicDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
+{
+     UIView *_tabBar;
+     UITextView *_input;
+     UILabel *_placeholder;
+     UIButton *_sendButton;
+}
+@end
+
+@implementation MZDynamicDetailViewController
+
+static NSString *const dynamicDetailCellIdentifier = @"detailCell";
+static NSString *const dynamicCommentTableViewCellIdentifier = @"commentCell";
+static NSString *const praisePersonTableViewCellIdentifier = @"praisePersonCell";
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"动态详情";
+    [self setNavigationDefaultLeftBarButton];
+    [self initUI];
+    // Do any additional setup after loading the view.
+}
+
+- (void)initUI
+{
+    self.view.backgroundColor = [UIColor whiteColor];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, SCREEN_HEIGHT-64.0f-49.0f) style:UITableViewStylePlain];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //去掉多余的分割线
+    tableView.tableFooterView = [[UIView alloc]init];
+    [self.view addSubview:tableView];
+    
+    
+    /**给tableView添加边框线
+     */
+    UIView *borderView = [[UIView alloc]initWithFrame:CGRectMake(15.0f, 16.0f, SCREEN_WIDTH-30.0f, 245.0f+70.0f+35.0f*3)];
+    borderView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:borderView];
+    
+    borderView.layer.borderColor = [[UIColor colorWithRed:241.0f/255.0f green:246.0f/255.0f blue:246.0f/255.0f alpha:1.0f]CGColor];
+    borderView.layer.borderWidth= 1.0f;
+    borderView.layer.cornerRadius = 8;
+    borderView.layer.masksToBounds = YES;
+    
+    
+    UIButton *messageButton = [UIButton createButtonWithNormalImage:@"main_add" highlitedImage:nil target:self action:@selector(didClickMessageButtonAction)];
+    messageButton.frame = rect(SCREEN_WIDTH-50.0f, 22.0f, 45.0f, 45.0f);
+    [self.view addSubview:messageButton];
+    UIView *redView = [[UIView alloc]initWithFrame:rect(SCREEN_WIDTH-10.0f-5.0f,23.0f, 10.0f, 10.0f)];
+    redView.backgroundColor = [UIColor redColor];
+    redView.layer.cornerRadius = CGRectGetHeight(redView.bounds)/2;
+    redView.layer.masksToBounds = YES;
+    [self.view addSubview:redView];
+    
+    
+    //注册标识
+    [tableView registerNib:[UINib nibWithNibName:@"DynamicListTableViewCell" bundle:nil] forCellReuseIdentifier:dynamicDetailCellIdentifier];
+    [tableView registerNib:[UINib nibWithNibName:@"DynamicCommentTableViewCell" bundle:nil] forCellReuseIdentifier:dynamicCommentTableViewCellIdentifier];
+    [tableView registerNib:[UINib nibWithNibName:@"MZPraisePersonTableViewCell" bundle:nil] forCellReuseIdentifier:praisePersonTableViewCellIdentifier];
+    
+    [self createTabbarView];
+    
+}
+
+//创建底部的Tabbar
+- (void)createTabbarView
+{
+    _tabBar=[[UIView alloc] initWithFrame:CGRectMake(0.0f, self.view.frame.size.height-64.0f-44.0f, self.view.frame.size.width, 44.0f)];
+    _tabBar.backgroundColor=[UIColor colorWithRed:0.961 green:0.961 blue:0.961 alpha:1];
+    [self.view addSubview:_tabBar];
+    
+    _input=[[UITextView alloc] initWithFrame:CGRectMake(10.0f, 4.0f, self.view.frame.size.width-110.0f, 36.0f)];
+    _input.keyboardType = UIKeyboardTypeDefault;
+    _input.layer.borderColor=[[UIColor grayColor] CGColor];
+    _input.layer.borderWidth=0.4f;
+    _input.layer.cornerRadius = 8;
+    _input.layer.masksToBounds = YES;
+    _input.delegate=self;
+    _input.font=[UIFont systemFontOfSize:18.0f];
+    //    [self.view addSubview:_input];
+    [_tabBar addSubview:_input];
+    
+    _placeholder=[[UILabel alloc] initWithFrame:CGRectMake(20.0f, 4.0f, self.view.frame.size.width-110.0f, 36.0f)];
+    _placeholder.font=[UIFont systemFontOfSize:18.0f];
+    _placeholder.textColor=[UIColor grayColor];
+    [_tabBar addSubview:_placeholder];
+    
+    _sendButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _sendButton.layer.cornerRadius = 8;
+    _sendButton.layer.masksToBounds = YES;
+    _sendButton.frame=CGRectMake(_input.frame.origin.x+_input.bounds.size.width+10.0f, 4.0f, self.view.frame.size.width-30.0f-_input.bounds.size.width, 36.0f);
+    [_sendButton setTitle:@"发送" forState:UIControlStateNormal];
+    _sendButton.titleLabel.font=[UIFont systemFontOfSize:20.0f];
+    [_sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_sendButton setBackgroundColor:[UIColor colorWithRed:72.0f/255.0f green:194.0f/255.0f blue:222.0f/255.0f alpha:1]];
+    [_sendButton addTarget:self action:@selector(sendAction) forControlEvents:UIControlEventTouchUpInside];
+    //    [self.view addSubview:_sendButton];
+    [_tabBar addSubview:_sendButton];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+
+- (void)didClickMessageButtonAction
+{
+    NSLog(@"消息页面");
+    MZMessageViewController *messageVC = [[MZMessageViewController alloc]init];
+    [self.navigationController pushViewController:messageVC animated:YES];
+    
+}
+
+
+
+
+
+
+#pragma mark ----- UITableViewDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+          return 245.0f;
+    }else if (indexPath.row == 1){
+        return 70.0f;
+    }else{
+        return 35.0f;
+    }
+  
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row ==0) {
+        DynamicListTableViewCell *detailCell = [tableView dequeueReusableCellWithIdentifier:dynamicDetailCellIdentifier forIndexPath:indexPath];
+        
+        detailCell.segmentLineView.rightLineView.hidden = YES;
+        detailCell.commentButton.hidden = YES;
+        detailCell.borderView.hidden = YES;
+        //分割线的宽度
+        CGFloat segmentLineOfWidth = SCREEN_WIDTH-16.0f;
+        detailCell.shareButton.frame = CGRectMake(8.0f +segmentLineOfWidth/4, detailCell.segmentLineView.frame.origin.y, segmentLineOfWidth/4, 30.0f);
+        return detailCell;
+    }else if (indexPath.row == 1){
+        
+        MZPraisePersonTableViewCell *praisePersonCell =[tableView dequeueReusableCellWithIdentifier:praisePersonTableViewCellIdentifier forIndexPath:indexPath];
+        return praisePersonCell;
+        
+    }else{
+        DynamicCommentTableViewCell *commentCell = [tableView dequeueReusableCellWithIdentifier:dynamicCommentTableViewCellIdentifier forIndexPath:indexPath];
+        
+        if (indexPath.row == 4) {
+            commentCell.lineView.hidden = YES;
+        }
+        
+        return commentCell;
+    }
+
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self hiddenKeyboard];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)keyboardWasShown:(NSNotification *)notification{
+    NSDictionary *userInfo = notification.userInfo;
+    // 动画的持续时间
+    double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    // 键盘的frame
+    CGRect keyboardF = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    // 执行动画
+    [UIView animateWithDuration:duration animations:^{
+        _tabBar.frame = CGRectMake(0, SCREEN_HEIGHT - keyboardF.size.height - 44, SCREEN_WIDTH, 44);
+        //        _input.frame = rect(10, ScreenHeight - keyboardF.size.height - 40, self.view.frame.size.width-110.0f, 36);
+        //        _sendButton.frame = rect(_input.frame.origin.x+_input.bounds.size.width+10.0f, ScreenHeight - keyboardF.size.height - 40, self.view.frame.size.width-30.0f-_input.bounds.size.width, 36);
+    }];
+}
+
+- (void)keyboardWasHide:(NSNotification *)notification{
+    NSDictionary *userInfo = notification.userInfo;
+    // 动画的持续时间
+    double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    // 执行动画
+    [UIView animateWithDuration:duration animations:^{
+        _tabBar.frame =CGRectMake(0.0f, self.view.frame.size.height-44.0f, self.view.frame.size.width, 44.0f);
+    }];
+}
+
+
+-(void)sendAction{
+    //    NSString *text=_input.text;
+    //    if (![text isEqualToString:@""]&&text!=nil&&([text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length!=0)){
+    //        ((MDWCommentListViewDataSource *)self.dataSource).listModel.commentListModelDelegate = self;
+    //        //        [((MDWCommentListViewDataSource *)self.dataSource).listModel sendCommentData:self.statusid comment:inputString];
+    //        [((MDWCommentListViewDataSource *)self.dataSource).listModel sendCommentData:self.statusid type:self.type touserid:self.touserid text:text];
+    //        _input.text=@"";
+    //        [self dismissKeyboard];
+    //        //        [self loadFirstPage];
+    //        [self reloadDataAndView];
+    //    }
+}
+
+-(void)hiddenKeyboard{
+    //    _isReply=FALSE;
+    //    self.touserid=@"";
+    //    self.type=@"0";
+    _placeholder.hidden=YES;
+    _input.text=@"";
+    [_input resignFirstResponder];
+}
+
+
+#pragma mark ----- UITextViewDelegate
+
+-(void)textViewDidChange:(UITextView *)textView
+{
+    //    if (textView.text.length == 0&&_isReply==TRUE) {
+    //        _placeholder.text = @"回复";
+    //        _placeholder.hidden=NO;
+    //    }else{
+    //        _placeholder.text = @"";
+    //        _placeholder.hidden=YES;
+    //    }
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

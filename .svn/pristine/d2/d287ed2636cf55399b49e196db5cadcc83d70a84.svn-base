@@ -1,0 +1,156 @@
+//
+//  MZDynamicListViewController.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/24.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZDynamicListViewController.h"
+#import "DynamicListTableViewCell.h"
+#import "MZDynamicDetailViewController.h"
+
+#import "MZPhotoAlbumDetailViewController.h"
+#import "MZHomeFootAnimationButton.h"
+#import "MZMessageViewController.h"
+@interface MZDynamicListViewController ()<UITableViewDelegate,UITableViewDataSource,MZHomeFootAnimationButtonDelegate>
+
+@end
+
+@implementation MZDynamicListViewController
+
+static NSString * const dynamicListCellIdentifier = @"dynamicCell";
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.title = @"公司年会";
+    UIButton *rightButton = [UIButton createButtonWithNormalImage:@"main_manage" highlitedImage:nil target:self action:@selector(didClickRightBarAction)];
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+    
+    [self setNavigationDefaultLeftBarButton];
+    
+    [self initUI];
+    
+}
+
+- (void)initUI
+{
+    self.view.backgroundColor = [UIColor whiteColor];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, SCREEN_HEIGHT-64.0f) style:UITableViewStylePlain];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    [self.view addSubview:tableView];
+    
+    //注册标识
+    [tableView registerNib:[UINib nibWithNibName:@"DynamicListTableViewCell" bundle:nil] forCellReuseIdentifier:dynamicListCellIdentifier];
+    
+    
+    
+    //添加悬浮消息Button
+    UIButton *messageButton = [UIButton createButtonWithNormalImage:@"main_add" highlitedImage:nil target:self action:@selector(didClickMessageButtonAction)];
+    messageButton.frame = rect(SCREEN_WIDTH-50.0f, 22.0f, 45.0f, 45.0f);
+    [self.view addSubview:messageButton];
+    UIView *redView = [[UIView alloc]initWithFrame:rect(SCREEN_WIDTH-10.0f-5.0f,23.0f, 10.0f, 10.0f)];
+    redView.backgroundColor = [UIColor redColor];
+    redView.layer.cornerRadius = CGRectGetHeight(redView.bounds)/2;
+    redView.layer.masksToBounds = YES;
+    [self.view addSubview:redView];
+    
+
+    
+    //添加底下悬浮Button
+    UIButton *addButton = [UIButton createButtonWithNormalImage:@"main_add" highlitedImage:nil target:self action:@selector(didClickAddButtonAction)];
+    addButton.frame = rect(0.0f, tableView.frame.size.height-50.0f-15.0f, SCREEN_WIDTH, 50);
+    [self.view addSubview:addButton];
+    
+    
+}
+
+- (void)didClickRightBarAction
+{
+    MZPhotoAlbumDetailViewController *photoAlbumDetailVC = [[MZPhotoAlbumDetailViewController alloc]init];
+    [self.navigationController pushViewController:photoAlbumDetailVC animated:YES];
+}
+
+
+- (void)didClickAddButtonAction
+{
+    [MZHomeFootAnimationButton showWithDelegate:self];
+    
+}
+
+- (void)didClickMessageButtonAction
+{
+    NSLog(@"消息页面");
+    MZMessageViewController *messageVC = [[MZMessageViewController alloc]init];
+    [self.navigationController pushViewController:messageVC animated:YES];
+    
+}
+
+
+#pragma mark ----- MZHomeFootAnimationButtonDelegate
+- (void) assetsButtonTouchUpInside:(UIButton *)button
+{
+    NSLog(@"拍照");
+}
+
+- (void) phoneButtonTouchUpInside:(UIButton *)button
+{
+    NSLog(@"相册");
+}
+
+
+#pragma mark ----- UITableViewDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 245;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DynamicListTableViewCell *dynamicCell = [tableView dequeueReusableCellWithIdentifier:dynamicListCellIdentifier forIndexPath:indexPath];
+    dynamicCell.backgroundColor = [UIColor colorWithRed:243.0f/255.0f green:253.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
+    dynamicCell.lineView.hidden = YES;
+    return dynamicCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MZDynamicDetailViewController *dynamicDetailVC = [[MZDynamicDetailViewController alloc]init];
+    [self.navigationController pushViewController:dynamicDetailVC animated:YES];
+}
+
+
+
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

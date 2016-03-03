@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MZNeedRegisteViewController">
+            <connections>
+                <outlet property="registeButton" destination="wJX-3R-nTS" id="cV6-Gh-LhB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgn-ch-hdn">
+                    <rect key="frame" x="50" y="209" width="48" height="48"/>
+                    <state key="normal" image="wx">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Caw-Cv-zeo">
+                    <rect key="frame" x="274" y="209" width="48" height="48"/>
+                    <state key="normal" image="sina">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqa-3v-nym">
+                    <rect key="frame" x="502" y="209" width="48" height="48"/>
+                    <state key="normal" image="qq">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您是否之前用过以下方式登录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSC-Zh-grf">
+                    <rect key="frame" x="214" y="164" width="169" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZ5-mQ-A0G">
+                    <rect key="frame" x="12" y="171" width="197" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Fce-Sd-fFw"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2AT-3m-1v7">
+                    <rect key="frame" x="388" y="171" width="200" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="hDr-dL-Fua"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18811726345 还没有注册过哦" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sy2-0J-vgi">
+                    <rect key="frame" x="148" y="80" width="293" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJX-3R-nTS">
+                    <rect key="frame" x="40" y="457" width="520" height="50"/>
+                    <color key="backgroundColor" red="0.019607843140000001" green="0.84313725490000002" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="1Fj-sm-Pi1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="注册新账号">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="aqa-3v-nym" secondAttribute="trailing" constant="50" id="0aR-ux-0GJ"/>
+                <constraint firstItem="2AT-3m-1v7" firstAttribute="top" secondItem="sy2-0J-vgi" secondAttribute="bottom" constant="71" id="F4d-5J-5hP"/>
+                <constraint firstAttribute="centerX" secondItem="wJX-3R-nTS" secondAttribute="centerX" id="Ha1-Rk-KlH"/>
+                <constraint firstItem="sy2-0J-vgi" firstAttribute="leading" secondItem="DZ5-mQ-A0G" secondAttribute="trailing" constant="-61" id="ItV-6B-cLh"/>
+                <constraint firstAttribute="centerY" secondItem="wJX-3R-nTS" secondAttribute="centerY" constant="-182" id="J1H-rb-Oep"/>
+                <constraint firstItem="tSC-Zh-grf" firstAttribute="centerX" secondItem="Caw-Cv-zeo" secondAttribute="centerX" id="PPA-hl-U81"/>
+                <constraint firstItem="Pgn-ch-hdn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="YFq-xV-cVX"/>
+                <constraint firstAttribute="trailing" secondItem="2AT-3m-1v7" secondAttribute="trailing" constant="12" id="YNc-WJ-gGh"/>
+                <constraint firstItem="2AT-3m-1v7" firstAttribute="leading" secondItem="tSC-Zh-grf" secondAttribute="trailing" constant="5" id="YqK-wC-Jkc"/>
+                <constraint firstAttribute="centerX" secondItem="sy2-0J-vgi" secondAttribute="centerX" constant="5" id="Zb2-w8-KSY"/>
+                <constraint firstItem="tSC-Zh-grf" firstAttribute="centerY" secondItem="Caw-Cv-zeo" secondAttribute="centerY" constant="-61" id="afI-Vk-zWR"/>
+                <constraint firstItem="tSC-Zh-grf" firstAttribute="leading" secondItem="DZ5-mQ-A0G" secondAttribute="trailing" constant="5" id="dfM-YS-3Sl"/>
+                <constraint firstAttribute="centerX" secondItem="tSC-Zh-grf" secondAttribute="centerX" constant="2" id="dm6-pq-vo0"/>
+                <constraint firstItem="tSC-Zh-grf" firstAttribute="centerX" secondItem="DZ5-mQ-A0G" secondAttribute="centerX" constant="174" id="eBq-wi-wG0"/>
+                <constraint firstItem="wJX-3R-nTS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="eu6-nF-3Q1"/>
+                <constraint firstItem="2AT-3m-1v7" firstAttribute="top" secondItem="aqa-3v-nym" secondAttribute="top" constant="-38" id="fhF-7R-tA1"/>
+                <constraint firstItem="DZ5-mQ-A0G" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="oFe-jy-stZ"/>
+                <constraint firstItem="2AT-3m-1v7" firstAttribute="top" secondItem="DZ5-mQ-A0G" secondAttribute="top" id="oaW-z4-KOX"/>
+                <constraint firstItem="sy2-0J-vgi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="pR9-51-1MW"/>
+                <constraint firstItem="tSC-Zh-grf" firstAttribute="top" secondItem="sy2-0J-vgi" secondAttribute="bottom" constant="63.5" id="rBf-Wx-exn"/>
+                <constraint firstItem="Pgn-ch-hdn" firstAttribute="top" secondItem="DZ5-mQ-A0G" secondAttribute="bottom" constant="37" id="sVe-av-1od"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="eBq-wi-wG0"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="qq" width="48" height="48"/>
+        <image name="sina" width="48" height="48"/>
+        <image name="wx" width="48" height="48"/>
+    </resources>
+</document>

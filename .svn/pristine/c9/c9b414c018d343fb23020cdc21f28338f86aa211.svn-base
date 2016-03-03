@@ -1,0 +1,182 @@
+//
+//  DynamicListTableViewCell.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/24.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "DynamicListTableViewCell.h"
+#import "MZPhotoListViewController.h"
+@interface DynamicListTableViewCell ()
+{
+
+    UIButton *_loveButton;
+    UIButton *_moreButton;
+    
+}
+@end
+
+@implementation DynamicListTableViewCell
+
+- (void)awakeFromNib {
+    // Initialization code
+    
+    
+    _borderView = [[UIView alloc]initWithFrame:rect(15.0f,15.0f,SCREEN_WIDTH-30.0f, 230.0f)];
+    _borderView.backgroundColor = [UIColor clearColor];
+    [self addSubview:_borderView];
+    
+    
+    _borderView.layer.borderColor = [[UIColor colorWithRed:241.0f/255.0f green:246.0f/255.0f blue:246.0f/255.0f alpha:1.0f]CGColor];
+    _borderView.layer.borderWidth= 1.0f;
+    _borderView.layer.cornerRadius = 8;
+    _borderView.layer.masksToBounds = YES;
+ 
+    
+    //(UIRectCornerBottomLeft | UIRectCornerBottomRight)
+//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:  _borderView.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(8.0f, 8.0f)];
+//    
+//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+//    maskLayer.frame = _borderView.bounds;
+//    maskLayer.path = maskPath.CGPath;
+//    _borderView.layer.mask = maskLayer;
+    
+    _coverImage.layer.cornerRadius = 8;
+    _coverImage.layer.masksToBounds = YES;
+    
+    //分割线的宽度
+    CGFloat segmentLineOfWidth = SCREEN_WIDTH-16.0f;
+    //分割线的X值
+    CGFloat segmentLineOfX = 8.0f;
+    //分割线的高度
+    CGFloat segmentLineOfHeight = 30.0f;
+    
+    _segmentLineView = [[MZSegmentLine alloc]initWithFrame:CGRectMake(segmentLineOfX, _coverImage.frame.origin.y + _coverImage.frame.size.height, segmentLineOfWidth, segmentLineOfHeight)];
+    [self addSubview:_segmentLineView];
+    
+    //button的Y
+    CGFloat buttonOfY = _segmentLineView.frame.origin.y;
+    
+    
+    _loveButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _loveButton.frame = CGRectMake(segmentLineOfX, buttonOfY, segmentLineOfWidth/4, segmentLineOfHeight);
+    [_loveButton setImage:[UIImage  imageNamed:@"main_love"] forState:UIControlStateNormal];
+    [_loveButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [_loveButton addTarget:self action:@selector(buttonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [_loveButton setTitleColor:[UIColor colorWithRed:146.0f/255.0f green:146.0f/255.0f blue:146.0f/255.0f alpha:1.0f ] forState:UIControlStateNormal];
+    [_loveButton setTitle:@"  45" forState:UIControlStateNormal];
+    _loveButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    _loveButton.tag = 10000;
+    [self addSubview:_loveButton];
+    
+    
+    _commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _commentButton.frame = CGRectMake(segmentLineOfX + segmentLineOfWidth/4, buttonOfY, segmentLineOfWidth/4, segmentLineOfHeight);
+    [_commentButton setTitleColor:[UIColor colorWithRed:146.0f/255.0f green:146.0f/255.0f blue:146.0f/255.0f alpha:1.0f ] forState:UIControlStateNormal];
+    [_commentButton setTitle:@"  45" forState:UIControlStateNormal];
+     _commentButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    [_commentButton setImage:[UIImage imageNamed:@"main_comment"] forState:UIControlStateNormal];
+    _commentButton.tag = 10001;
+    [_commentButton addTarget:self action:@selector(buttonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_commentButton];
+    
+    _shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _shareButton.frame = CGRectMake(segmentLineOfX + segmentLineOfWidth/2, buttonOfY, segmentLineOfWidth/4, segmentLineOfHeight);
+    [_shareButton setImage:[UIImage imageNamed:@"main_share"] forState:UIControlStateNormal];
+    [_shareButton setTitleColor:[UIColor colorWithRed:146.0f/255.0f green:146.0f/255.0f blue:146.0f/255.0f alpha:1.0f ] forState:UIControlStateNormal];
+    [_shareButton addTarget:self action:@selector(buttonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+    _shareButton.tag = 10002;
+    [self addSubview:_shareButton];
+    
+    _moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _moreButton.frame = CGRectMake(segmentLineOfX + segmentLineOfWidth/2 + segmentLineOfWidth/4, buttonOfY, segmentLineOfWidth/4, segmentLineOfHeight);
+    [_moreButton setImage:[UIImage imageNamed:@"main_more"] forState:UIControlStateNormal];
+    [_moreButton addTarget:self action:@selector(buttonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+    _moreButton.tag = 10003;
+    [self addSubview:_moreButton];
+    
+    
+  
+    
+    
+    _headImage.layer.cornerRadius = CGRectGetHeight([_headImage bounds])/2;
+    _headImage.layer.masksToBounds = YES;
+    _headImage.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didClickHeadImageAction)];
+    [_headImage addGestureRecognizer:tap];
+    
+    //
+    
+    
+    
+   
+    
+   
+}
+
+- (void)buttonDidClicked:(UIButton *)button
+{
+    switch (button.tag) {
+        case 10000:
+        {
+            NSLog(@"点赞");
+        }
+            break;
+        case 10001:
+        {
+            NSLog(@"评论");
+        }
+            break;
+        case 10002:
+        {
+            NSLog(@"分享");
+        }
+            break;
+        case 10003:
+        {
+            NSLog(@"保存图片");
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+
+/**
+ *  点击头像的响应方法
+ */
+- (void)didClickHeadImageAction
+{
+    NSLog(@"跳转相册");
+    MZPhotoListViewController *photoListVC = [[MZPhotoListViewController alloc]init];
+    [[self viewController].navigationController pushViewController:photoListVC animated:YES];
+}
+
+
+//找任意view所在控制器的方法
+- (UIViewController*)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder* nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController*)nextResponder;
+        }
+    }
+    return nil;
+}
+
+
+
+
+
+
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end

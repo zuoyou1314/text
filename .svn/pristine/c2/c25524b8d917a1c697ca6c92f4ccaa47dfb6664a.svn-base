@@ -1,0 +1,57 @@
+//
+//  MZPrintUserInfoViewController.m
+//  MZTuShenMa
+//
+//  Created by Wangxin on 15/8/25.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZPrintUserInfoViewController.h"
+
+NS_ENUM(NSInteger, sexTag)
+{
+    man = 99,
+    woman = 999
+};
+
+@interface MZPrintUserInfoViewController ()
+
+@property (weak, nonatomic) IBOutlet UIButton *commitButton;
+@end
+
+@implementation MZPrintUserInfoViewController
+
+- (instancetype)init
+{
+    if(self = [super init])
+    {
+        self.view = [[[NSBundle mainBundle] loadNibNamed:@"MZPrintUserInfoViewController" owner:self options:nil] lastObject];
+        [self.commitButton.layer setCornerRadius:25.0f];
+        [self setNavigationItem];
+    }
+    return self;
+}
+- (IBAction)commitButtonTouchUpInside:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+- (IBAction)sexSelectButtonTouchUpInside:(id)sender
+{
+    [self.view.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if((obj && [obj isKindOfClass:[UIButton class]] && ([(UIButton *)obj tag] == man)) || [(UIButton *)obj tag] == woman)
+
+        {
+            [(UIButton *)obj setSelected:NO];
+        }
+    }];
+    [(UIButton *)sender setSelected:YES];
+}
+- (void) setNavigationItem
+{
+    [self setNavigationDefaultLeftBarButton];
+    self.navigationItem.leftBarButtonItem = nil;
+}
+
+@end

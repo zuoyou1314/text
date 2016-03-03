@@ -1,0 +1,32 @@
+//
+//  DynamicDetailTableViewCell.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/25.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "DynamicCommentTableViewCell.h"
+
+@implementation DynamicCommentTableViewCell
+
+- (void)awakeFromNib {
+    // Initialization code
+    _iconImage.layer.cornerRadius = CGRectGetHeight([self.iconImage bounds])/2;
+    _iconImage.layer.masksToBounds = YES;
+    
+    _lineView = [[UIView alloc]initWithFrame:rect(15.0f,35.0f,SCREEN_WIDTH-30.0f,1.0f)];
+    _lineView.backgroundColor = [UIColor colorWithRed:239.0f/255.0f green:249.0f/255.0f blue:249.0f/255.0f alpha:1.0f];
+    [self addSubview:_lineView];
+    
+    
+    
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end

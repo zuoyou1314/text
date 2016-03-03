@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="218" id="cQI-Wm-0vP" customClass="MZDynamicDetailTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="218"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cQI-Wm-0vP" id="Fpd-ai-kXg">
+                <rect key="frame" x="0.0" y="0.0" width="319" height="217"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uui-So-JUl">
+                        <rect key="frame" x="13" y="8" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="ilS-CL-yiM"/>
+                            <constraint firstAttribute="height" constant="30" id="wS7-s5-leE"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小蘑菇&amp;小女孩" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Bi-7A-TqT">
+                        <rect key="frame" x="53" y="16" width="81" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015年8月15日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbz-FL-aBR">
+                        <rect key="frame" x="214" y="22" width="92" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.65098039220000004" green="0.71764705880000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3Bi-7A-TqT" firstAttribute="leading" secondItem="uui-So-JUl" secondAttribute="trailing" constant="10" id="9hE-o9-jJI"/>
+                    <constraint firstItem="uui-So-JUl" firstAttribute="centerY" secondItem="3Bi-7A-TqT" secondAttribute="centerY" id="BF5-ir-Lup"/>
+                    <constraint firstItem="uui-So-JUl" firstAttribute="top" secondItem="Fpd-ai-kXg" secondAttribute="topMargin" id="Csr-IU-xGX"/>
+                    <constraint firstItem="rbz-FL-aBR" firstAttribute="bottom" secondItem="Fpd-ai-kXg" secondAttribute="bottomMargin" id="HNr-5C-aaF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="rbz-FL-aBR" secondAttribute="trailing" constant="5" id="Ppp-eF-hlg"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="uui-So-JUl" secondAttribute="bottom" id="Uci-eu-HlQ"/>
+                    <constraint firstItem="uui-So-JUl" firstAttribute="leading" secondItem="3Bi-7A-TqT" secondAttribute="leading" constant="-52" id="VeD-c2-q3L"/>
+                    <constraint firstItem="uui-So-JUl" firstAttribute="trailing" secondItem="3Bi-7A-TqT" secondAttribute="trailing" constant="-69" id="WWq-lt-WtM"/>
+                    <constraint firstItem="uui-So-JUl" firstAttribute="top" secondItem="Fpd-ai-kXg" secondAttribute="topMargin" constant="2" id="Zmq-jf-2dE"/>
+                    <constraint firstItem="uui-So-JUl" firstAttribute="leading" secondItem="Fpd-ai-kXg" secondAttribute="leadingMargin" constant="5" id="bFn-Vk-Beo"/>
+                    <constraint firstItem="3Bi-7A-TqT" firstAttribute="leading" secondItem="Fpd-ai-kXg" secondAttribute="leadingMargin" constant="65" id="czL-Oz-WFv"/>
+                    <constraint firstItem="rbz-FL-aBR" firstAttribute="bottom" secondItem="uui-So-JUl" secondAttribute="bottom" id="ndQ-0X-e7Y"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Uci-eu-HlQ"/>
+                        <exclude reference="VeD-c2-q3L"/>
+                        <exclude reference="WWq-lt-WtM"/>
+                        <exclude reference="Zmq-jf-2dE"/>
+                        <exclude reference="czL-Oz-WFv"/>
+                        <exclude reference="HNr-5C-aaF"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="headImage" destination="uui-So-JUl" id="eBW-eY-uGM"/>
+                <outlet property="nameLabel" destination="3Bi-7A-TqT" id="pJf-fW-7TU"/>
+                <outlet property="timeLabel" destination="rbz-FL-aBR" id="ebd-zH-bcg"/>
+            </connections>
+            <point key="canvasLocation" x="299.5" y="409"/>
+        </tableViewCell>
+    </objects>
+</document>

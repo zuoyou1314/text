@@ -1,0 +1,104 @@
+//
+//  MZAddPhotoAlbumViewController.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/26.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZAddPhotoAlbumViewController.h"
+#import "MZCreateAlbumParam.h"
+#import "MZRequestManger+User.h"
+
+@interface MZAddPhotoAlbumViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *photoAlbumNameTextField;
+@property (weak, nonatomic) IBOutlet UITextView *photoAlbumDetailTextView;
+
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@end
+
+@implementation MZAddPhotoAlbumViewController
+
+
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        self.view = [[[NSBundle mainBundle] loadNibNamed:@"MZAddPhotoAlbumViewController" owner:self options:nil] lastObject];
+        [self setUIDef];
+    }
+    return self;
+}
+
+- (void)setUIDef
+{
+    self.title = @"相册";
+    
+     [self  setNavigationDefaultLeftBarButton];
+    
+    _photoAlbumDetailTextView.layer.borderColor = [[UIColor colorWithRed:194.0f/255.0f green:195.0f/255.0f blue:196.0f/255.0f alpha:1.0f]CGColor];
+    _photoAlbumDetailTextView.layer.borderWidth= 1.0f;
+    _photoAlbumDetailTextView.layer.cornerRadius = 8;
+    _photoAlbumDetailTextView.layer.masksToBounds = YES;
+    
+    
+    _sendButton.layer.cornerRadius = 25;
+    _sendButton.layer.masksToBounds = YES;
+    
+    
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_photoAlbumDetailTextView resignFirstResponder];
+    [_photoAlbumNameTextField resignFirstResponder];
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+   
+    [self initUI];
+}
+
+- (void)initUI
+{
+//    self.view.backgroundColor = [UIColor colorWithRed:243.0f/255.0f green:253.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
+    
+}
+- (IBAction)didClickSendButtonAction:(id)sender {
+    if (_photoAlbumNameTextField.text || _photoAlbumDetailTextView.text) {
+        
+        __weak typeof(self) weakSelf = self;
+        MZCreateAlbumParam *createAlbumParam = [[MZCreateAlbumParam alloc]init];
+        createAlbumParam.user_id = @"2";
+        createAlbumParam.album_name = _photoAlbumNameTextField.text;
+        createAlbumParam.album_des = _photoAlbumDetailTextView.text;
+        createAlbumParam.push =@"0";
+        [self showHoldView];
+        [MZRequestManger createAlbumRequest:createAlbumParam success:^(NSDictionary *object) {
+               [weakSelf hideHUD];
+        } failure:^(NSString *errMsg, NSString *errCode) {
+               [weakSelf hideHUD];
+        }];
+        
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

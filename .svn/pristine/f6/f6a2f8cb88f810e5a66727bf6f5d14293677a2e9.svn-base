@@ -1,0 +1,28 @@
+//
+//  MZMainCollectionViewCell.h
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/24.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface MZMainCollectionViewCell : UICollectionViewCell
+
+/**
+ *  背景图片
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *backImage;
+/**
+ *  标题Lable
+ */
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+
+/**
+ *  头像Image
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+
+@end

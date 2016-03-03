@@ -1,0 +1,32 @@
+//
+//  MZMessageTableViewCell.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/29.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZMessageTableViewCell.h"
+
+
+@interface MZMessageTableViewCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *headImage;
+
+@end
+
+@implementation MZMessageTableViewCell
+
+- (void)awakeFromNib {
+    // Initialization code
+    _headImage.layer.cornerRadius = CGRectGetHeight(_headImage.bounds)/2;
+    _headImage.layer.masksToBounds = YES;
+    
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end

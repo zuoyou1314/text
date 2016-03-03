@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MZPhotoAlbumNameView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6F-2q-Rej">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="1"/>
+                    <color key="backgroundColor" red="0.80784313725490198" green="0.80784313725490198" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Y6c-eB-2h7"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ee6-zS-McM">
+                    <rect key="frame" x="0.0" y="599" width="600" height="1"/>
+                    <color key="backgroundColor" red="0.80784313725490198" green="0.80784313725490198" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Nd5-J7-REM"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王大锤" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRn-o6-x4i">
+                    <rect key="frame" x="534" y="0.0" width="36" height="600"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_arrows.png" translatesAutoresizingMaskIntoConstraints="NO" id="81B-HN-MVM">
+                    <rect key="frame" x="581" y="292" width="9" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="h32-A2-qPq"/>
+                        <constraint firstAttribute="width" constant="9" id="pN4-3V-bUi"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="相册名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjf-I6-jb5">
+                    <rect key="frame" x="20" y="0.0" width="60" height="600"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="ppJ-9F-2dh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ppJ-9F-2dh"/>
+                        </mask>
+                    </variation>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="S6F-2q-Rej" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="03r-Ow-eOT"/>
+                <constraint firstAttribute="bottom" secondItem="Ee6-zS-McM" secondAttribute="bottom" id="0xU-pg-SJA"/>
+                <constraint firstAttribute="trailing" secondItem="bRn-o6-x4i" secondAttribute="trailing" constant="30" id="GPa-LQ-WTi"/>
+                <constraint firstItem="xjf-I6-jb5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LVv-Lu-prG"/>
+                <constraint firstAttribute="centerY" secondItem="xjf-I6-jb5" secondAttribute="centerY" id="LZE-AJ-GU7"/>
+                <constraint firstItem="xjf-I6-jb5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="OGt-TG-cLy"/>
+                <constraint firstItem="S6F-2q-Rej" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Vzr-95-c4O"/>
+                <constraint firstAttribute="bottom" secondItem="xjf-I6-jb5" secondAttribute="bottom" id="Xcx-1w-r4z"/>
+                <constraint firstItem="81B-HN-MVM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XrL-S8-jax"/>
+                <constraint firstAttribute="trailing" secondItem="Ee6-zS-McM" secondAttribute="trailing" id="Yz3-bj-6Kz"/>
+                <constraint firstAttribute="centerY" secondItem="xjf-I6-jb5" secondAttribute="centerY" constant="6" id="ZnB-Fz-fgt"/>
+                <constraint firstItem="bRn-o6-x4i" firstAttribute="leading" secondItem="81B-HN-MVM" secondAttribute="trailing" id="c2D-7m-qUF"/>
+                <constraint firstItem="xjf-I6-jb5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="eBl-Rg-VXB"/>
+                <constraint firstAttribute="trailing" secondItem="81B-HN-MVM" secondAttribute="trailing" constant="10" id="ldN-77-U2a"/>
+                <constraint firstItem="81B-HN-MVM" firstAttribute="centerY" secondItem="xjf-I6-jb5" secondAttribute="centerY" id="qJS-7J-4wf"/>
+                <constraint firstItem="Ee6-zS-McM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="sFe-ZD-hUN"/>
+                <constraint firstAttribute="centerY" secondItem="bRn-o6-x4i" secondAttribute="centerY" constant="-17.5" id="sT2-kS-gbV"/>
+                <constraint firstAttribute="bottom" secondItem="81B-HN-MVM" secondAttribute="bottom" id="sTe-Aq-wk6"/>
+                <constraint firstAttribute="trailing" secondItem="S6F-2q-Rej" secondAttribute="trailing" id="t9f-Ip-LJM"/>
+                <constraint firstAttribute="trailing" secondItem="81B-HN-MVM" secondAttribute="trailing" id="yov-Sa-6af"/>
+                <constraint firstItem="bRn-o6-x4i" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zpU-Z8-dM8"/>
+                <constraint firstAttribute="bottom" secondItem="bRn-o6-x4i" secondAttribute="bottom" id="zqJ-JX-QvZ"/>
+                <constraint firstItem="xjf-I6-jb5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="zzQ-CX-GlX"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="LZE-AJ-GU7"/>
+                    <exclude reference="OGt-TG-cLy"/>
+                    <exclude reference="ZnB-Fz-fgt"/>
+                    <exclude reference="zzQ-CX-GlX"/>
+                    <exclude reference="c2D-7m-qUF"/>
+                    <exclude reference="sT2-kS-gbV"/>
+                    <exclude reference="XrL-S8-jax"/>
+                    <exclude reference="sTe-Aq-wk6"/>
+                    <exclude reference="yov-Sa-6af"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="albumName" destination="bRn-o6-x4i" id="8dT-KS-rnh"/>
+                <outlet property="bottomLineHeight" destination="Nd5-J7-REM" id="RXf-UZ-2MA"/>
+                <outlet property="topLineOfHeight" destination="Y6c-eB-2h7" id="tNQ-4q-Xg1"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="main_arrows.png" width="16" height="26"/>
+    </resources>
+</document>

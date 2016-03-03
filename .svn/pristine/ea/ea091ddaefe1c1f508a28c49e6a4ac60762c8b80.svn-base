@@ -1,0 +1,51 @@
+//
+//  DynamicListTableViewCell.h
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/24.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "MZSegmentLine.h"
+@interface DynamicListTableViewCell : UITableViewCell
+
+
+/**
+ *  边框线
+ */
+@property (nonatomic,strong) UIView *borderView;
+/**
+ *  分割线
+ */
+@property (nonatomic, strong) MZSegmentLine *segmentLineView;
+/**
+ *  封面图片
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *coverImage;
+
+/**
+ *  评论按钮
+ */
+@property (nonatomic, weak) UIButton *commentButton;
+/**
+ *  分享按钮
+ */
+@property (nonatomic, weak) UIButton *shareButton;
+
+/**
+ *  用户头像
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *headImage;
+/**
+ *  用户名字
+ */
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+/**
+ *  时间
+ */
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIView *lineView;
+
+
+@end

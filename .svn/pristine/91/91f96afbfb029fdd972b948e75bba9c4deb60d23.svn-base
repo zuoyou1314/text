@@ -1,0 +1,40 @@
+//
+//  MZRequestManger+User.h
+//  MZTuShenMa
+//
+//  Created by Wangxin on 15/8/26.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZRequestManger.h"
+#import "MZHttpServer.h"
+#import "MZLoginParam.h"
+#import "MZPhoneValidateParam.h"
+#import "MZRegisterPhoneParam.h"
+#import "MZCreateAlbumParam.h"
+
+@interface MZRequestManger (User)
+
+/**
+ *  登陆请求
+ *
+ *  @param param   登陆body体
+ *  @param success 登陆成功
+ *  @param failure 登陆失败
+ *
+ *  @return 
+ */
++ (AFHTTPRequestOperation *)loginRequest:(MZLoginParam *)param
+                                 success:(void (^)(NSDictionary *object))success
+                                 failure:(void (^)(NSString *errMsg,NSString * errCode))failure;
+
++ (AFHTTPRequestOperation *)phoneValidateRequest:(MZPhoneValidateParam *)param
+                                         success:(void (^)(NSString *object))success
+                                         failure:(void (^)(NSString *errMsg))failure;
+
++ (AFHTTPRequestOperation *)RegisterPhoneRequestsuccess:(void (^)(NSString *object))success
+                                                failure:(void (^)(NSString *errMsg))failure;
+
++ (AFHTTPRequestOperation *)createAlbumRequest:(MZCreateAlbumParam *)param success:(void (^)(NSDictionary *object))success failure:(void (^)(NSString *errMsg,NSString * errCode))failure;
+
+@end

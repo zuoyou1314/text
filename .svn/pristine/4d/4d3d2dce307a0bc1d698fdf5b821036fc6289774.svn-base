@@ -1,0 +1,27 @@
+//
+//  DynamicDetailTableViewCell.h
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/25.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface DynamicCommentTableViewCell : UITableViewCell
+
+
+/**
+ *  头像
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+/**
+ *  评论内容
+ */
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+/**
+ *  自定义的cell分割线
+ */
+@property (strong, nonatomic)  UIView *lineView;
+
+@end

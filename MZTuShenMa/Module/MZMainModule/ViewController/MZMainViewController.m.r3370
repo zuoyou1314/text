@@ -1,0 +1,229 @@
+//
+//  MZMainViewController.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/24.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZMainViewController.h"
+#import "MZBaseNavigationViewController.h"
+#import "MZMainCollectionViewCell.h"
+#import "MZDynamicListViewController.h"
+#import "MZloginViewController.h"
+
+#import "MZAddPhotoAlbumViewController.h"
+
+#import "MZMainSortView.h"
+#import "MZDrawerView.h"
+#import "MZMessageViewController.h"
+#import "MZSetViewController.h"
+#import "MZFeedbackViewController.h"
+@interface MZMainViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MZDrawerViewDelegate>
+{
+    UICollectionView * _collectionView;
+}
+@end
+
+@implementation MZMainViewController
+
+static NSString * const mzmainCollectionViewCellIdentifier = @"mainCell";
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.title = @"相册";
+    
+    
+    UIButton *leftButton = [UIButton createButtonWithNormalImage:@"main_me" highlitedImage:nil target:self action:@selector(didClickLeftBarAction)];
+    UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftBarButton;
+    
+    
+    UIButton *addButton = [UIButton createButtonWithNormalImage:@"main_sort" highlitedImage:nil target:self action:@selector(didClickRightButton)];
+    UIBarButtonItem *addBarItem = [[UIBarButtonItem alloc]initWithCustomView:addButton];
+    
+    UIButton *placeholderButton = [UIButton createButtonWithNormalImage:nil highlitedImage:nil target:self action:nil];
+    UIBarButtonItem *placeholderBarItem = [[UIBarButtonItem alloc]initWithCustomView:placeholderButton];
+    
+    UIButton *spaceButton = [UIButton createButtonWithNormalImage:nil highlitedImage:nil target:self action:nil];
+    UIBarButtonItem *spaceBarItem = [[UIBarButtonItem alloc]initWithCustomView:spaceButton];
+    
+    
+    UIButton *rightButton = [UIButton createButtonWithNormalImage:@"main_me" highlitedImage:nil target:self action:@selector(didClickAddButton)];
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    
+
+    NSArray *actionButtonItems = @[addBarItem,placeholderBarItem,spaceBarItem,rightBarItem];
+    self.navigationItem.rightBarButtonItems = actionButtonItems;
+    
+    
+    [self initUI];
+  
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//    MZBaseNavigationViewController *naController = [[MZBaseNavigationViewController alloc] initWithRootViewController:[[MZloginViewController alloc] init]];
+//    [self presentViewController:naController animated:YES completion:^{
+//    }];
+}
+
+- (void)initUI
+{
+    //创建一个布局样式
+    UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, SCREEN_HEIGHT-64.0f) collectionViewLayout:layout];
+    _collectionView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_collectionView];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    
+    //注册标识
+    [_collectionView registerNib:[UINib nibWithNibName:@"MZMainCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:mzmainCollectionViewCellIdentifier];
+
+    //    [_collectionView registerClass:[MDWMainCollectionHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+    
+}
+
+/**
+ *  导航栏左边按钮的响应方法
+ */
+- (void)didClickLeftBarAction
+{
+    NSLog(@"弹出侧边栏");
+    MZDrawerView *drawerView =[[MZDrawerView alloc]init];
+    drawerView.frame = [UIScreen mainScreen].bounds;
+    drawerView.drawerDelegate = self;
+    [drawerView show];
+   
+}
+
+#pragma mark ----- MZDrawerViewDelegate
+- (void)didClickCellWithRow:(NSInteger)row
+{
+    switch (row) {
+        case 0:
+        {
+            NSLog(@"我的消息");
+            MZMessageViewController *messageVC = [[MZMessageViewController alloc]init];
+            [self.navigationController pushViewController:messageVC animated:YES];
+        }
+            break;
+        case 1:
+        {
+              NSLog(@"设置");
+            MZSetViewController *setVC =[[MZSetViewController alloc]init];
+            [self.navigationController pushViewController:setVC animated:YES];
+        }
+            break;
+        case 2:
+        {
+            NSLog(@"APP Store评分");
+        }
+            break;
+        case 3:
+        {
+            NSLog(@"客服与反馈");
+            MZFeedbackViewController *feedbackVC = [[MZFeedbackViewController alloc]init];
+            [self.navigationController pushViewController:feedbackVC animated:YES];
+        }
+            break;
+        case 4:
+        {
+            NSLog(@"关于我们");
+        }
+            break;
+            
+            
+        default:
+            break;
+    }
+}
+
+
+
+- (void)didClickAddButton
+{
+    NSLog(@"添加相册");
+    MZAddPhotoAlbumViewController *addPhotoAlbumVC = [[MZAddPhotoAlbumViewController alloc]init];
+    [self.navigationController pushViewController:addPhotoAlbumVC animated:YES];
+    
+}
+
+- (void)didClickRightButton
+{
+    NSLog(@"排序");
+    MZMainSortView *mainSortView = [[MZMainSortView alloc]init];
+    mainSortView.frame = [UIScreen mainScreen].bounds;
+    [mainSortView show];
+
+}
+
+#pragma mark ---- UICollectionViewDataSource
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+//设置元素大小
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(self.view.bounds.size.width, 170.0f);
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    MZMainCollectionViewCell *mainCell = [collectionView dequeueReusableCellWithReuseIdentifier:mzmainCollectionViewCellIdentifier forIndexPath:indexPath];
+//    mainCell.backgroundColor = [UIColor redColor];
+//    [collectionCell.starImage setImageWithURL:[NSURL URLWithString:model.listcover] placeholderImage:IMAGE(@"main_item")];
+//    collectionCell.nameLabel.text = model.name;
+    return mainCell;
+
+}
+
+//点击元素触发事件
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //    MDWGirlModel *girl=[_girls objectAtIndex:[indexPath row]];
+    //    MDWGirlInfoViewController *mmStarVC = [[MDWGirlInfoViewController alloc] initWithGirlId:girl.girlid];
+    //    mmStarVC.isFromMeView = NO;
+    //    [self pushViewController:mmStarVC];
+
+    MZDynamicListViewController *dynamicListVC = [[MZDynamicListViewController alloc]init];
+    [self.navigationController pushViewController:dynamicListVC animated:YES];
+ }
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+
+
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

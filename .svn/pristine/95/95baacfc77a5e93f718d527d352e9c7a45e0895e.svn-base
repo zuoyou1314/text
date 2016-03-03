@@ -1,0 +1,20 @@
+//
+//  MZPhotoCollectionViewCell.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/27.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZPhotoCollectionViewCell.h"
+
+@implementation MZPhotoCollectionViewCell
+
+- (void)awakeFromNib {
+    // Initialization code
+    //加个白边
+    UIView *line = [[UIView alloc] initWithFrame:rect(self.bounds.size.width-1, 0, 1, self.bounds.size.height)];
+    line.backgroundColor = [UIColor whiteColor];
+}
+
+@end

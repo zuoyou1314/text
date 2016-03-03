@@ -1,0 +1,108 @@
+//
+//  MZPhotoListViewController.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/27.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZPhotoListViewController.h"
+#import "MZPhotoCollectionViewCell.h"
+
+#import "MZOperationFriendView.h"
+@interface MZPhotoListViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+{
+    UICollectionView *_collectionView;
+}
+@end
+
+@implementation MZPhotoListViewController
+
+static NSString * const photoCellIdentifier = @"photoCell";
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"相册";
+    [self setNavigationDefaultLeftBarButton];
+    // Do any additional setup after loading the view.
+    UIButton *rightButton = [UIButton createButtonWithNormalImage:@"main_operation" highlitedImage:nil target:self action:@selector(didClickRightBarAction)];
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+    
+    [self initUI];
+}
+
+- (void)initUI
+{
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, SCREEN_HEIGHT-64.0f) collectionViewLayout:flowLayout];
+      _collectionView.backgroundColor = [UIColor clearColor];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    [self.view addSubview:_collectionView];
+    
+    //注册Cell
+    
+    [_collectionView registerNib:[UINib nibWithNibName:@"MZPhotoCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:photoCellIdentifier];
+    
+}
+
+#pragma mark -----UICollectionViewDelegate,UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 20;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    MZPhotoCollectionViewCell *photoCell = [collectionView dequeueReusableCellWithReuseIdentifier:photoCellIdentifier forIndexPath:indexPath];
+    return photoCell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(SCREEN_WIDTH/3, SCREEN_WIDTH/3);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+
+
+#pragma mark -- Event Response
+- (void)didClickRightBarAction
+{
+    MZOperationFriendView *operationFriendView = [[MZOperationFriendView alloc]init];
+    operationFriendView.frame = [UIScreen mainScreen].bounds;
+    [operationFriendView show];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

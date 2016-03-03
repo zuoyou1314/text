@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MZBlacklistTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_backImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="MDK-vc-uke">
+                        <rect key="frame" x="10" y="13" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="VSR-sV-Q43"/>
+                            <constraint firstAttribute="width" constant="35" id="cfM-GB-Ala"/>
+                            <constraint firstAttribute="height" constant="35" id="szq-DU-j3X"/>
+                            <constraint firstAttribute="height" constant="35" id="wv7-6T-waa"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="VSR-sV-Q43"/>
+                                <exclude reference="szq-DU-j3X"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小美人啦啦啦" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58m-oY-yRa">
+                        <rect key="frame" x="55" y="13" width="84" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.10980392160000001" green="0.12941176469999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015年10月13日  加入黑名单" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bd5-8J-PKB">
+                        <rect key="frame" x="55" y="31" width="159" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQW-06-oA2">
+                        <rect key="frame" x="260" y="18" width="50" height="25"/>
+                        <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="HSV-De-CAB"/>
+                            <constraint firstAttribute="height" constant="25" id="TuG-5l-3e0"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="移除">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="didClickRemoveButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wnx-Pv-kwL"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="58m-oY-yRa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="5O8-3j-h69"/>
+                    <constraint firstItem="Bd5-8J-PKB" firstAttribute="top" secondItem="58m-oY-yRa" secondAttribute="bottom" constant="9" id="80s-xX-GfV"/>
+                    <constraint firstItem="58m-oY-yRa" firstAttribute="leading" secondItem="MDK-vc-uke" secondAttribute="trailing" constant="10" id="8QC-L6-y39"/>
+                    <constraint firstItem="fQW-06-oA2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="BHv-cb-gJq"/>
+                    <constraint firstItem="fQW-06-oA2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="18" id="Bbc-XM-38h"/>
+                    <constraint firstItem="MDK-vc-uke" firstAttribute="centerY" secondItem="58m-oY-yRa" secondAttribute="centerY" constant="13" id="CwQ-7q-HeK"/>
+                    <constraint firstItem="58m-oY-yRa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="DvW-im-xl8"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="MDK-vc-uke" secondAttribute="bottom" constant="-13" id="FC9-gh-XUy"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="fQW-06-oA2" secondAttribute="trailing" constant="2" id="Qa6-Fy-qso"/>
+                    <constraint firstItem="MDK-vc-uke" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Tlc-zx-lQb"/>
+                    <constraint firstItem="MDK-vc-uke" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="jUx-EZ-fFj"/>
+                    <constraint firstItem="Bd5-8J-PKB" firstAttribute="leading" secondItem="MDK-vc-uke" secondAttribute="trailing" constant="10" id="k0V-xG-Wnl"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="fQW-06-oA2" secondAttribute="bottom" constant="10" id="roA-gi-CXt"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Bd5-8J-PKB" secondAttribute="bottom" constant="5" id="ufj-CS-eDX"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="CwQ-7q-HeK"/>
+                        <exclude reference="FC9-gh-XUy"/>
+                        <exclude reference="DvW-im-xl8"/>
+                        <exclude reference="80s-xX-GfV"/>
+                        <exclude reference="Bbc-XM-38h"/>
+                        <exclude reference="roA-gi-CXt"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="headImage" destination="MDK-vc-uke" id="L0w-0E-7NI"/>
+                <outlet property="nameLabel" destination="58m-oY-yRa" id="LTR-NX-wAU"/>
+                <outlet property="removeButton" destination="fQW-06-oA2" id="7Vg-Nt-Ust"/>
+                <outlet property="timeLable" destination="Bd5-8J-PKB" id="sCC-0a-dSf"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="main_backImage.png" width="150" height="152"/>
+    </resources>
+</document>

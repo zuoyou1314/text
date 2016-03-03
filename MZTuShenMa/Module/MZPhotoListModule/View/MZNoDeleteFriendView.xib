@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="7GX-Wi-fuB" customClass="MZNoDeleteFriendView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hn-OI-zCG">
+                    <rect key="frame" x="0.0" y="422" width="600" height="178"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择需要的操作" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ri5-Zv-gRU">
+                            <rect key="frame" x="35" y="15" width="119" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.88235294119999996" green="0.2470588235" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hci-WJ-1wA">
+                            <rect key="frame" x="35" y="66" width="530" height="51"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="SI7-fB-Ht8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="举报">
+                                <color key="titleColor" red="0.43529411759999997" green="0.50588235290000005" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="SI7-fB-Ht8"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="didClickReportButtonAction:" destination="7GX-Wi-fuB" eventType="touchUpInside" id="xrb-bZ-FHE"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNI-2b-SVr">
+                            <rect key="frame" x="511" y="-25" width="49" height="49"/>
+                            <state key="normal" image="main_cancel">
+                                <color key="titleColor" red="0.94901960780000005" green="0.98823529409999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didClickCancelButtonAction:" destination="7GX-Wi-fuB" eventType="touchUpInside" id="L3z-1X-yOi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="aNI-2b-SVr" firstAttribute="leading" secondItem="4hn-OI-zCG" secondAttribute="leading" constant="35" id="4Z4-e3-0NN"/>
+                        <constraint firstAttribute="height" constant="178" id="8AH-Yv-vdW"/>
+                        <constraint firstItem="Hci-WJ-1wA" firstAttribute="leading" secondItem="4hn-OI-zCG" secondAttribute="leading" constant="35" id="FVQ-9S-6Oy"/>
+                        <constraint firstItem="Hci-WJ-1wA" firstAttribute="top" secondItem="Ri5-Zv-gRU" secondAttribute="bottom" constant="13" id="HMV-LA-paM"/>
+                        <constraint firstAttribute="trailing" secondItem="Hci-WJ-1wA" secondAttribute="trailing" constant="35" id="IPI-CL-Chs"/>
+                        <constraint firstAttribute="bottom" secondItem="aNI-2b-SVr" secondAttribute="bottom" constant="20" id="MtJ-XE-pZK"/>
+                        <constraint firstAttribute="trailing" secondItem="aNI-2b-SVr" secondAttribute="trailing" constant="40" id="SG9-GQ-NBb"/>
+                        <constraint firstItem="aNI-2b-SVr" firstAttribute="top" secondItem="4hn-OI-zCG" secondAttribute="top" constant="-25" id="Yl7-no-9Q3"/>
+                        <constraint firstItem="aNI-2b-SVr" firstAttribute="top" secondItem="Hci-WJ-1wA" secondAttribute="bottom" constant="8" id="ZNk-Tu-6nl"/>
+                        <constraint firstItem="aNI-2b-SVr" firstAttribute="height" secondItem="Hci-WJ-1wA" secondAttribute="height" id="hRS-9c-K87"/>
+                        <constraint firstAttribute="bottom" secondItem="Hci-WJ-1wA" secondAttribute="bottom" constant="61" id="mB6-oS-FuW"/>
+                        <constraint firstItem="Hci-WJ-1wA" firstAttribute="top" secondItem="4hn-OI-zCG" secondAttribute="top" constant="66" id="pNu-ug-DtE"/>
+                        <constraint firstItem="Ri5-Zv-gRU" firstAttribute="leading" secondItem="4hn-OI-zCG" secondAttribute="leading" constant="35" id="rPr-aa-J8O"/>
+                        <constraint firstItem="Ri5-Zv-gRU" firstAttribute="top" secondItem="4hn-OI-zCG" secondAttribute="top" constant="15" id="rVD-hM-RqK"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="HMV-LA-paM"/>
+                            <exclude reference="4Z4-e3-0NN"/>
+                            <exclude reference="MtJ-XE-pZK"/>
+                            <exclude reference="ZNk-Tu-6nl"/>
+                            <exclude reference="hRS-9c-K87"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="4hn-OI-zCG" firstAttribute="leading" secondItem="7GX-Wi-fuB" secondAttribute="leading" id="Qv9-pw-hkM"/>
+                <constraint firstAttribute="bottom" secondItem="4hn-OI-zCG" secondAttribute="bottom" id="hJm-3p-k2T"/>
+                <constraint firstAttribute="trailing" secondItem="4hn-OI-zCG" secondAttribute="trailing" id="la5-zQ-WTI"/>
+            </constraints>
+            <connections>
+                <outlet property="cancelButton" destination="aNI-2b-SVr" id="vL2-OT-8hs"/>
+                <outlet property="customAlertView" destination="4hn-OI-zCG" id="3dI-cI-Zpn"/>
+                <outlet property="reportButton" destination="Hci-WJ-1wA" id="zAS-Mq-UdY"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="main_cancel" width="49" height="49"/>
+    </resources>
+</document>

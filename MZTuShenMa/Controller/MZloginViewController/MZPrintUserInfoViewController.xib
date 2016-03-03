@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MZPrintUserInfoViewController">
+            <connections>
+                <outlet property="commitButton" destination="eSp-fh-Sc8" id="BHo-Ly-K0d"/>
+                <outlet property="headImage" destination="OLx-gw-5kM" id="hvg-dj-KeW"/>
+                <outlet property="infoView" destination="hwU-Ag-MAZ" id="vQ2-Rf-dgl"/>
+                <outlet property="manButton" destination="K6c-W7-BrX" id="tyn-6P-eeD"/>
+                <outlet property="userNameTextField" destination="SKL-5T-cUk" id="VTm-NZ-aOf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="womanButton" destination="Dsu-Cd-wF9" id="Tzo-Yx-TB7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_personalInformation" translatesAutoresizingMaskIntoConstraints="NO" id="SFb-LR-pai">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSp-fh-Sc8">
+                    <rect key="frame" x="10" y="342" width="580" height="45"/>
+                    <color key="backgroundColor" red="0.17254901960784313" green="0.36078431372549019" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="8Dm-Jq-thR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="                 提交                 ">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="commitButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="PP1-F2-0od"/>
+                    </connections>
+                </button>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwU-Ag-MAZ">
+                    <rect key="frame" x="10" y="195" width="580" height="45"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" 昵称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SKL-5T-cUk">
+                            <rect key="frame" x="56" y="0.0" width="393" height="45"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="Wm0-bs-jwe"/>
+                            </constraints>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Wm0-bs-jwe"/>
+                                </mask>
+                            </variation>
+                        </textField>
+                        <button opaque="NO" tag="999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsu-Cd-wF9">
+                            <rect key="frame" x="520" y="3" width="50" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="70o-xj-duq"/>
+                                <constraint firstAttribute="width" constant="50" id="Nmh-yj-hRW"/>
+                                <constraint firstAttribute="width" constant="70" id="UFQ-3R-IwD"/>
+                                <constraint firstAttribute="height" constant="39" id="W7M-dZ-osh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <inset key="titleEdgeInsets" minX="-50" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="女" image="login_ womanNormal">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="womanSelect"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="UFQ-3R-IwD"/>
+                                    <exclude reference="W7M-dZ-osh"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="sexSelectButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="9yS-sB-YPj"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userNameImage" translatesAutoresizingMaskIntoConstraints="NO" id="KkQ-qp-XE0">
+                            <rect key="frame" x="10" y="10" width="25" height="25"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLx-9V-rMQ">
+                            <rect key="frame" x="45" y="9" width="1" height="27"/>
+                            <color key="backgroundColor" red="0.45882352941176469" green="0.4392156862745098" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="27" id="Fxr-qv-6nF"/>
+                                <constraint firstAttribute="width" constant="1" id="tzu-Vd-9yx"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSM-Qy-st8">
+                            <rect key="frame" x="449" y="10" width="1" height="27"/>
+                            <color key="backgroundColor" red="0.45882352939999999" green="0.43921568630000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="27" id="2Vc-cT-X23"/>
+                                <constraint firstAttribute="width" constant="1" id="m0u-Om-tDv"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6c-W7-BrX">
+                            <rect key="frame" x="460" y="3" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="AbX-kK-8pb"/>
+                                <constraint firstAttribute="width" constant="50" id="bj7-i1-xbO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <inset key="titleEdgeInsets" minX="-50" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="男" image="login_manNormal">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="manSelect"/>
+                            <connections>
+                                <action selector="sexSelectButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="zDX-hb-LGH"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="JLx-9V-rMQ" firstAttribute="centerY" secondItem="hwU-Ag-MAZ" secondAttribute="centerY" id="CRO-mu-AEY"/>
+                        <constraint firstAttribute="trailing" secondItem="Dsu-Cd-wF9" secondAttribute="trailing" constant="10" id="Co1-Zf-8Zh"/>
+                        <constraint firstItem="SKL-5T-cUk" firstAttribute="top" secondItem="JLx-9V-rMQ" secondAttribute="bottom" id="DEj-EA-MnJ"/>
+                        <constraint firstItem="KkQ-qp-XE0" firstAttribute="centerY" secondItem="hwU-Ag-MAZ" secondAttribute="centerY" id="Djd-Dk-GbU"/>
+                        <constraint firstItem="kSM-Qy-st8" firstAttribute="centerY" secondItem="K6c-W7-BrX" secondAttribute="centerY" id="Jdf-uK-pbS"/>
+                        <constraint firstItem="kSM-Qy-st8" firstAttribute="top" secondItem="SKL-5T-cUk" secondAttribute="bottom" id="Jv4-Xc-oui"/>
+                        <constraint firstItem="Dsu-Cd-wF9" firstAttribute="centerY" secondItem="hwU-Ag-MAZ" secondAttribute="centerY" id="K7Q-Gc-qCG"/>
+                        <constraint firstItem="K6c-W7-BrX" firstAttribute="leading" secondItem="kSM-Qy-st8" secondAttribute="trailing" constant="10" id="TXi-Qw-3xn"/>
+                        <constraint firstItem="SKL-5T-cUk" firstAttribute="height" secondItem="hwU-Ag-MAZ" secondAttribute="height" id="Zmr-FM-d84"/>
+                        <constraint firstItem="Dsu-Cd-wF9" firstAttribute="height" secondItem="hwU-Ag-MAZ" secondAttribute="height" id="ax0-7d-hKO"/>
+                        <constraint firstItem="KkQ-qp-XE0" firstAttribute="leading" secondItem="hwU-Ag-MAZ" secondAttribute="leading" constant="10" id="fW3-Ij-Hnf"/>
+                        <constraint firstItem="SKL-5T-cUk" firstAttribute="leading" secondItem="JLx-9V-rMQ" secondAttribute="trailing" constant="10" id="g2o-3O-bgU"/>
+                        <constraint firstItem="SKL-5T-cUk" firstAttribute="centerY" secondItem="hwU-Ag-MAZ" secondAttribute="centerY" id="hEP-yy-oM1"/>
+                        <constraint firstItem="kSM-Qy-st8" firstAttribute="leading" secondItem="SKL-5T-cUk" secondAttribute="trailing" id="hT2-6F-gxb"/>
+                        <constraint firstItem="K6c-W7-BrX" firstAttribute="centerY" secondItem="Dsu-Cd-wF9" secondAttribute="centerY" id="lCC-to-Tht"/>
+                        <constraint firstItem="Dsu-Cd-wF9" firstAttribute="leading" secondItem="K6c-W7-BrX" secondAttribute="trailing" constant="10" id="llh-Wl-Zms"/>
+                        <constraint firstItem="JLx-9V-rMQ" firstAttribute="leading" secondItem="KkQ-qp-XE0" secondAttribute="trailing" constant="10" id="tmP-1b-hZD"/>
+                        <constraint firstAttribute="height" constant="45" id="vU2-dM-y3X"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="DEj-EA-MnJ"/>
+                            <exclude reference="Jv4-Xc-oui"/>
+                            <exclude reference="ax0-7d-hKO"/>
+                        </mask>
+                    </variation>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_headImage" translatesAutoresizingMaskIntoConstraints="NO" id="OLx-gw-5kM">
+                    <rect key="frame" x="272" y="94" width="56" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="j7f-KW-nIx"/>
+                        <constraint firstAttribute="height" constant="56" id="mEj-db-3yc"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="hwU-Ag-MAZ" secondAttribute="trailing" constant="10" id="2Ql-hf-4P8"/>
+                <constraint firstItem="hwU-Ag-MAZ" firstAttribute="top" secondItem="OLx-gw-5kM" secondAttribute="bottom" constant="45" id="9nz-3c-DMT"/>
+                <constraint firstItem="eSp-fh-Sc8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="A1W-uB-d21"/>
+                <constraint firstItem="OLx-gw-5kM" firstAttribute="top" secondItem="hwU-Ag-MAZ" secondAttribute="bottom" constant="39" id="Fnv-19-k2E"/>
+                <constraint firstAttribute="centerX" secondItem="eSp-fh-Sc8" secondAttribute="centerX" id="RYt-S0-hfp"/>
+                <constraint firstAttribute="centerY" secondItem="eSp-fh-Sc8" secondAttribute="centerY" constant="-64" id="Uvr-XU-PN4"/>
+                <constraint firstItem="hwU-Ag-MAZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="WFL-cR-iaG"/>
+                <constraint firstAttribute="trailing" secondItem="SFb-LR-pai" secondAttribute="trailing" id="X6c-6a-ZAG"/>
+                <constraint firstItem="SFb-LR-pai" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ntC-Sm-TcP"/>
+                <constraint firstItem="OLx-gw-5kM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="94" id="oRF-Aw-f1o"/>
+                <constraint firstAttribute="bottom" secondItem="SFb-LR-pai" secondAttribute="bottom" id="oxI-3f-cfr"/>
+                <constraint firstAttribute="centerX" secondItem="OLx-gw-5kM" secondAttribute="centerX" id="rrk-0T-0x3"/>
+                <constraint firstItem="hwU-Ag-MAZ" firstAttribute="centerX" secondItem="OLx-gw-5kM" secondAttribute="centerX" id="tbt-je-Y6I"/>
+                <constraint firstItem="SFb-LR-pai" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wXH-jA-sW4"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="tbt-je-Y6I"/>
+                    <exclude reference="Fnv-19-k2E"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="login_ womanNormal" width="20" height="20"/>
+        <image name="login_headImage" width="60" height="60"/>
+        <image name="login_manNormal" width="20" height="20"/>
+        <image name="login_personalInformation" width="320" height="568"/>
+        <image name="manSelect" width="25" height="25"/>
+        <image name="userNameImage" width="25" height="25"/>
+        <image name="womanSelect" width="25" height="25"/>
+    </resources>
+</document>

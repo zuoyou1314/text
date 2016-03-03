@@ -1,0 +1,131 @@
+//
+//  MZRegisterViewController.m
+//  MZTuShenMa
+//
+//  Created by Wangxin on 15/8/24.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZRegisterViewController.h"
+#import "MZRegiSendMessageViewController.h"
+#import "MZNeedRegisteViewController.h"
+#import "MZRequestManger+User.h"
+#import "UserHelp.h"
+
+NS_ENUM(NSInteger, RegtextFieldTag)
+{
+    phoneNumTextTag = 99,
+    passWrodTextTag = 999,
+};
+
+@interface MZRegisterViewController () <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIView *backView;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passWordTextField;
+
+@end
+
+@implementation MZRegisterViewController
+
+- (instancetype)init
+{
+    if(self = [super init])
+    {
+        self.view = [[[NSBundle mainBundle] loadNibNamed:@"MZRegisterViewController" owner:self options:nil] lastObject];
+        [self setUIDef];
+        [self setNavigationItem];
+    }
+    return self;
+}
+
+- (void) setUIDef
+{
+    [self.backView.layer setCornerRadius:5.0f];
+    [self.backView.layer setBorderWidth:.8f];
+    [self.backView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    
+    [self.loginButton.layer setCornerRadius:25.0f];
+    
+    [self.phoneNumTextField setKeyboardType:UIKeyboardTypePhonePad];
+    [self.phoneNumTextField setDelegate:self];
+    [self.passWordTextField setDelegate:self];
+}
+
+- (void) setNavigationItem
+{
+    [self setNavigationDefaultLeftBarButton];
+}
+
+// -- MARK 验证是否是手机号
+- (BOOL) isPhoneNum:(NSString *)phoneNum
+{
+    NSError *error = [[NSError alloc] init];
+    NSRegularExpression *regular = [NSRegularExpression regularExpressionWithPattern:kMobileNumberPattern options:NSRegularExpressionCaseInsensitive error:&error];
+    NSArray *regArr = [regular matchesInString:phoneNum options:0 range:NSMakeRange(0, [phoneNum length])];
+    if(regArr.count > 0) return YES;
+    else return NO;
+}
+
+- (IBAction)loginButtonTouchUpInside:(id)sender
+{
+    if (sender && [sender isKindOfClass:[UIButton class]])
+    {
+        if(![self isPhoneNum:self.phoneNumTextField.text])
+        {
+            [self showHUDWithText:@"您输入的手机号有误"]; return;
+        }
+        __weak typeof(self) weakSelf = self;
+        if (!self.isNew)
+        {
+            MZLoginParam *param = [[MZLoginParam alloc] init];
+            [param setAccount:self.phoneNumTextField.text];
+            [param setPass:self.passWordTextField.text];
+            [param setWay:phoneNumType];
+            [self showHoldView];
+            [MZRequestManger loginRequest:param success:^(NSDictionary *object) {
+                [weakSelf hideHUD];
+                [weakSelf dismissViewControllerAnimated:YES completion:^{
+                }];
+            } failure:^(NSString *errMsg,NSString *errCode) {
+                [weakSelf hideHUD];
+                if([errCode integerValue] == 10004)
+                {
+                    [weakSelf.navigationController pushViewController:[[MZNeedRegisteViewController alloc] init] animated:YES];
+                }
+                else
+                    [weakSelf showHUDWithText:errMsg];
+            }];
+        }
+        else
+        {
+            MZPhoneValidateParam *param = [[MZPhoneValidateParam alloc] init];
+            [param setPhone:self.phoneNumTextField.text];
+            [self showHoldView];
+            [MZRequestManger phoneValidateRequest:param success:^(NSString *object) {
+                [weakSelf hideHUD];
+                [[UserHelp sharedUserHelper] setUserName:weakSelf.phoneNumTextField.text];
+                [[UserHelp sharedUserHelper] setPassWord:weakSelf.passWordTextField.text];
+                [[UserHelp sharedUserHelper] setMsgCode:object];
+                [weakSelf.navigationController pushViewController:[[MZRegiSendMessageViewController alloc] init] animated:YES];
+            } failure:^(NSString *errMsg) {
+                [weakSelf hideHUD];
+                [weakSelf showHUDWithText:errMsg];
+            }];
+        }
+    }
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if(textField.tag == phoneNumTextTag)
+    {
+        if (textField.text.length + string.length > 11)
+        {
+            return NO;
+        }
+    }
+    return YES;
+}
+@end

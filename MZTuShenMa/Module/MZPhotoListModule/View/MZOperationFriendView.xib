@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MZOperationFriendView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6O-ny-5Te">
+                    <rect key="frame" x="0.0" y="422" width="600" height="178"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPg-nY-l2W">
+                            <rect key="frame" x="511" y="-25" width="49" height="49"/>
+                            <state key="normal" image="main_cancel">
+                                <color key="titleColor" red="0.94901960780000005" green="0.98823529409999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didClickCancelButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="aBB-2D-07H"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择需要的操作" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2V-rh-7Ja">
+                            <rect key="frame" x="35" y="12" width="119" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.88235294119999996" green="0.2470588235" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRP-Eb-FeS">
+                            <rect key="frame" x="35" y="45" width="530" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="1mz-Ic-ExZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="移除该成员">
+                                <color key="titleColor" red="0.43529411759999997" green="0.50588235290000005" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="1mz-Ic-ExZ"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="didClickRemoveFriendButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="eCi-Cw-kFl"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="408-dP-cwX">
+                            <rect key="frame" x="35" y="106" width="530" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="3wE-uo-gz6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="举报">
+                                <color key="titleColor" red="0.43529411759999997" green="0.50588235290000005" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="3wE-uo-gz6"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="didClickReportButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="3mv-dk-Wvn"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="MPg-nY-l2W" firstAttribute="leading" secondItem="w6O-ny-5Te" secondAttribute="leading" constant="35" id="30Z-9G-pRq"/>
+                        <constraint firstItem="i2V-rh-7Ja" firstAttribute="leading" secondItem="w6O-ny-5Te" secondAttribute="leading" constant="35" id="3eX-Hg-Jy1"/>
+                        <constraint firstItem="TRP-Eb-FeS" firstAttribute="top" secondItem="i2V-rh-7Ja" secondAttribute="bottom" constant="12" id="Ags-mc-Yay"/>
+                        <constraint firstItem="MPg-nY-l2W" firstAttribute="height" secondItem="408-dP-cwX" secondAttribute="height" id="DKE-uf-eja"/>
+                        <constraint firstItem="MPg-nY-l2W" firstAttribute="height" secondItem="TRP-Eb-FeS" secondAttribute="height" id="FDL-OH-Ddf"/>
+                        <constraint firstItem="408-dP-cwX" firstAttribute="height" secondItem="TRP-Eb-FeS" secondAttribute="height" id="I7s-VQ-2Me"/>
+                        <constraint firstItem="TRP-Eb-FeS" firstAttribute="height" secondItem="408-dP-cwX" secondAttribute="height" id="JMt-af-Eyg"/>
+                        <constraint firstAttribute="trailing" secondItem="TRP-Eb-FeS" secondAttribute="trailing" constant="35" id="L3b-3O-QPn"/>
+                        <constraint firstAttribute="trailing" secondItem="MPg-nY-l2W" secondAttribute="trailing" constant="40" id="NEe-Mu-mKg"/>
+                        <constraint firstItem="MPg-nY-l2W" firstAttribute="top" secondItem="408-dP-cwX" secondAttribute="bottom" constant="8" id="NTL-yP-OJZ"/>
+                        <constraint firstItem="408-dP-cwX" firstAttribute="leading" secondItem="w6O-ny-5Te" secondAttribute="leading" constant="35" id="NwU-Th-h1Q"/>
+                        <constraint firstAttribute="height" constant="178" id="PAt-l9-v2V"/>
+                        <constraint firstItem="MPg-nY-l2W" firstAttribute="top" secondItem="w6O-ny-5Te" secondAttribute="top" constant="-25" id="PyM-uK-6DF"/>
+                        <constraint firstItem="408-dP-cwX" firstAttribute="top" secondItem="TRP-Eb-FeS" secondAttribute="bottom" constant="8" id="QMo-ij-Zei"/>
+                        <constraint firstAttribute="trailing" secondItem="408-dP-cwX" secondAttribute="trailing" constant="35" id="U6s-ht-yFV"/>
+                        <constraint firstItem="408-dP-cwX" firstAttribute="top" secondItem="TRP-Eb-FeS" secondAttribute="bottom" constant="13" id="Vag-xy-vsJ"/>
+                        <constraint firstItem="MPg-nY-l2W" firstAttribute="top" secondItem="TRP-Eb-FeS" secondAttribute="bottom" constant="8" id="Vwu-1Z-o73"/>
+                        <constraint firstItem="i2V-rh-7Ja" firstAttribute="top" secondItem="w6O-ny-5Te" secondAttribute="top" constant="12" id="gli-mk-bbQ"/>
+                        <constraint firstItem="408-dP-cwX" firstAttribute="top" secondItem="TRP-Eb-FeS" secondAttribute="bottom" constant="8" id="iDe-Px-WsP"/>
+                        <constraint firstAttribute="bottom" secondItem="408-dP-cwX" secondAttribute="bottom" constant="25" id="iFO-2w-KuR"/>
+                        <constraint firstItem="TRP-Eb-FeS" firstAttribute="leading" secondItem="w6O-ny-5Te" secondAttribute="leading" constant="35" id="pnl-YW-uUC"/>
+                        <constraint firstAttribute="bottom" secondItem="MPg-nY-l2W" secondAttribute="bottom" constant="20" id="qQ6-sp-3ba"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="JMt-af-Eyg"/>
+                            <exclude reference="QMo-ij-Zei"/>
+                            <exclude reference="iDe-Px-WsP"/>
+                            <exclude reference="30Z-9G-pRq"/>
+                            <exclude reference="DKE-uf-eja"/>
+                            <exclude reference="FDL-OH-Ddf"/>
+                            <exclude reference="NTL-yP-OJZ"/>
+                            <exclude reference="Vwu-1Z-o73"/>
+                            <exclude reference="qQ6-sp-3ba"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="w6O-ny-5Te" secondAttribute="bottom" id="JjG-k3-Lfn"/>
+                <constraint firstAttribute="trailing" secondItem="w6O-ny-5Te" secondAttribute="trailing" id="fk8-fw-u2P"/>
+                <constraint firstItem="w6O-ny-5Te" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ovc-BY-aKp"/>
+            </constraints>
+            <connections>
+                <outlet property="cancelButton" destination="MPg-nY-l2W" id="eoz-3U-q1W"/>
+                <outlet property="customAlertView" destination="w6O-ny-5Te" id="UGX-i6-TXe"/>
+                <outlet property="removeFriendButton" destination="TRP-Eb-FeS" id="TI1-0A-R9h"/>
+                <outlet property="reportButton" destination="408-dP-cwX" id="yD3-oL-vng"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="main_cancel" width="49" height="49"/>
+    </resources>
+</document>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MZPushNotificationView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推送通知" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RF-rn-5Ju">
+                    <rect key="frame" x="20" y="13" width="68" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打开推送通知,有新照片或新成员时会受到通知" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Uo-0X-W3b">
+                    <rect key="frame" x="20" y="42" width="244" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.65098039220000004" green="0.71764705880000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8p7-qN-PMB">
+                    <rect key="frame" x="541" y="7" width="51" height="31"/>
+                </switch>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="4RF-rn-5Ju" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="RIp-Tt-7O0"/>
+                <constraint firstItem="4Uo-0X-W3b" firstAttribute="top" secondItem="4RF-rn-5Ju" secondAttribute="bottom" constant="8" id="XTX-3W-17Y"/>
+                <constraint firstItem="4Uo-0X-W3b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="fH4-Za-5BT"/>
+                <constraint firstItem="8p7-qN-PMB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="itN-7d-yef"/>
+                <constraint firstItem="4RF-rn-5Ju" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="kv9-Sw-dG0"/>
+                <constraint firstAttribute="trailing" secondItem="8p7-qN-PMB" secondAttribute="trailing" constant="10" id="omc-R1-2zt"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

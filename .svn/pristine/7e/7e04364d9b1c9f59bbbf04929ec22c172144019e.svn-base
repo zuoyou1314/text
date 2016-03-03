@@ -1,0 +1,141 @@
+//
+//  MZPhotoAlbumDetailViewController.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/27.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZPhotoAlbumDetailViewController.h"
+
+#import "MZHeadInfoCollectionViewCell.h"
+#import "MZPhotoAlbumNameView.h"
+#import "MZExitPhotoView.h"
+#import "MZAddFriendViewController.h"
+#import "MZPushNotificationView.h"
+#define HEADINFOOFWIDTH ([UIScreen mainScreen].bounds.size.width-20)
+
+@interface MZPhotoAlbumDetailViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+{
+    UICollectionView *_collectionView;
+}
+@end
+
+@implementation MZPhotoAlbumDetailViewController
+
+static NSString * const mzHeadInfoCollectionViewCellIdentifier = @"headInfoCell";
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.title = @"相册信息";
+    [self setNavigationDefaultLeftBarButton];
+    [self initUI];
+    
+}
+
+- (void)initUI
+{
+    //创建一个布局样式
+    UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, HEADINFOOFWIDTH/4*2+20.0f) collectionViewLayout:layout];
+    _collectionView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_collectionView];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    
+    //注册标识
+    [_collectionView registerClass:[MZHeadInfoCollectionViewCell class]  forCellWithReuseIdentifier:mzHeadInfoCollectionViewCellIdentifier];
+    
+    
+    MZPhotoAlbumNameView *photoAlbumNameView = [[MZPhotoAlbumNameView alloc]initWithFrame:CGRectMake(0, _collectionView.frame.size.height + 10.0f, SCREEN_WIDTH, 64+45)];
+    [self.view addSubview:photoAlbumNameView];
+    
+    MZPushNotificationView *pushView = [[MZPushNotificationView alloc]initWithFrame:CGRectMake(0, photoAlbumNameView.frame.size.height + photoAlbumNameView.frame.origin.y +10.0f-64.0f, SCREEN_WIDTH, 57.5f+64.0f)];
+    [self.view addSubview:pushView];
+    
+    
+    MZExitPhotoView *exitView = [[MZExitPhotoView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-50.0f-20.0f-64.0f, SCREEN_WIDTH, 64.0f+50.0f)];
+    [self.view addSubview:exitView];;
+    
+   
+}
+
+#pragma mark ---- UICollectionViewDataSource
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 7;
+}
+
+//设置元素大小
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(HEADINFOOFWIDTH/4, HEADINFOOFWIDTH/4);
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (indexPath.row == 6) {
+        MZHeadInfoCollectionViewCell *addCell = [collectionView dequeueReusableCellWithReuseIdentifier:mzHeadInfoCollectionViewCellIdentifier forIndexPath:indexPath];
+        addCell.headImage.image = [UIImage imageNamed:@"main_head"];
+        addCell.nameLabel.hidden = YES;
+        addCell.backgroundColor = [UIColor whiteColor];
+        return addCell;
+        
+    }else{
+        MZHeadInfoCollectionViewCell *headInfoCell = [collectionView dequeueReusableCellWithReuseIdentifier:mzHeadInfoCollectionViewCellIdentifier forIndexPath:indexPath];
+        headInfoCell.backgroundColor =[UIColor whiteColor];
+        return headInfoCell;
+    }
+  
+}
+
+//点击元素触发事件
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+   
+    
+    if (indexPath.row == 6) {
+        MZAddFriendViewController *addFriendVC = [[MZAddFriendViewController alloc]init];
+        [self.navigationController pushViewController:addFriendVC animated:YES];
+    }
+    
+    //    MDWGirlModel *girl=[_girls objectAtIndex:[indexPath row]];
+    //    MDWGirlInfoViewController *mmStarVC = [[MDWGirlInfoViewController alloc] initWithGirlId:girl.girlid];
+    //    mmStarVC.isFromMeView = NO;
+    //    [self pushViewController:mmStarVC];
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+
+
+
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

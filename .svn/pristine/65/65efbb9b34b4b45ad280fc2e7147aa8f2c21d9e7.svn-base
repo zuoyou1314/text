@@ -1,0 +1,86 @@
+//
+//  MZBaseViewController.h
+//  ZhiXuan
+//
+//  Created by Wangxin on 15/6/4.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
+#import "UIButton+Create.h"
+
+static NSString * const kKeyboardTimeDuration = @"keyboardTimeDuration";
+
+static NSString * const kKeyboardRect = @"keyboardRect";
+
+static NSString * const kHidesBottomBarWhenPushed = @"HidesBottomBarWhenPushedNotificationName";
+
+@interface MZBaseViewController : UIViewController <MBProgressHUDDelegate>
+{
+    MBProgressHUD *progressHUD;
+    UIImageView *holdImageView;
+}
+//-- 控制导航下线是否出现
+@property (nonatomic, assign) BOOL isHiddenNavigationline;
+//-- 导航下线图片
+@property (nonatomic, strong) UIImageView *lineImageView;
+
+- (id)initWithTitle:(NSString *)title;
+
+- (void)setNavigationBarColor:(UIColor *)aColor;
+
+- (void)setNavigationBarImage:(UIImage *)aImage;
+
+- (void) setNavigationBtnTitle:(NSString *)title WithBtnImgName:(NSString *)imgName;
+
+- (void) setBackGroundImageWithImageName:(NSString *)imageName;
+
+- (void) setUserInfoBackColor;
+
+- (void) setNavigationTitle:(NSString *)title;
+
+- (void) setNavigationDefaultLeftBarButton;
+
+//帝加
+-(void)setLeftBackButtonItem:(NSString*)leftName;
+
+//首页导航条的右边栏的按钮
+-(void)setNaviRightBackButtonItem:(NSString*)rightName;
+
+- (void)setNavigationLeftBarButtonWithImage:(UIImage *)image;
+
+- (void) setNavigationRightBarButtonWithImage:(UIImage *)rightBarButtonImage;
+
+- (void) setNavigationRightBarButtonWithTitle:(NSString *)rightBarButtonTitle;
+
+- (void) setNavigationRightBarButtonWithImage:(UIImage *)rightBarButtonImage title:(NSString *)title;
+
+- (void) navigationDefaultLeftBarButtonTouchUpInside:(id)sender;
+
+- (void) rightBarButtonTouchUpInside:(id)sender;
+
+- (void) leftBarButtonTouchUpInside:(id)sender;
+
+- (void) NavBtnClikck:(UIButton *)btn;
+//-- 通知键盘回调
+
+- (NSMutableDictionary *) keyboardWillShowNotification:(NSNotification *)notification;
+
+- (NSMutableDictionary *) keyboardWillHideNotification:(NSNotification *)notification;
+
+- (NSMutableDictionary *) keyboardWillChangeNotification:(NSNotification *)notification;
+//-- HUD
+- (void)showHUD;
+
+- (void)hideHUD;
+
+- (void)showHUDWithText:(NSString *)message;
+
+- (void)showHUDWithText:(NSString *)message completionBlock:(void (^)(void))completionBlock;
+//-- Alert
+- (void) showAlertWihtText:(NSString *)text;
+
+- (void) showHoldView;
+
+@end

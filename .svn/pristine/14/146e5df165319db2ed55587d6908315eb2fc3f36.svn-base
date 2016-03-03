@@ -1,0 +1,25 @@
+//
+//  MZDrawerVIew.h
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/29.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@protocol MZDrawerViewDelegate <NSObject>
+
+@required
+
+- (void)didClickCellWithRow:(NSInteger)row;
+
+@end
+
+@interface MZDrawerView : UIView
+
+@property (nonatomic,weak) id<MZDrawerViewDelegate>drawerDelegate;
+
+- (void)show;
+
+@end

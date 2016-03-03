@@ -1,0 +1,172 @@
+//
+//  MZRequestManger+User.m
+//  MZTuShenMa
+//
+//  Created by Wangxin on 15/8/26.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZRequestManger+User.h"
+
+@implementation MZRequestManger (User)
+
++ (AFHTTPRequestOperation *)loginRequest:(MZLoginParam *)param
+                                 success:(void (^)(NSDictionary *object))success
+                                 failure:(void (^)(NSString *errMsg,NSString * errCode))failure
+{
+    AFHTTPRequestOperation *openation = [param bindRequestOperation];
+    
+    [[MZHttpServer servse] requestByOperation:openation success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if(success)
+        {
+            if(responseObject)
+            {
+                MZBaseResponse *response = [[MZBaseResponse alloc] initWithDictionary:responseObject];
+                
+                if ([[self class] isSuccessCode:response])
+                {
+                    
+                    success(response.body[0]);
+                }
+                else
+                {
+                    failure(response.errMsg,response.errCode);
+                }
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        if(failure)
+        {
+            failure([[self class] showMsgWithError:error],[NSString stringWithFormat:@"%ld",error.code]);
+        }
+    }];
+    
+    return openation;
+}
+
++ (AFHTTPRequestOperation *)phoneValidateRequest:(MZPhoneValidateParam *)param
+                                         success:(void (^)(NSString *object))success
+                                         failure:(void (^)(NSString *errMsg))failure
+{
+    AFHTTPRequestOperation *openation = [param bindRequestOperation];
+    
+    [[MZHttpServer servse] requestByOperation:openation success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if(success)
+        {
+            if(responseObject)
+            {
+                MZBaseResponse *response = [[MZBaseResponse alloc] initWithDictionary:responseObject];
+                
+                if ([[self class] isSuccessCode:response])
+                {
+                    
+                    success(responseObject[@"code"]);
+                }
+                else
+                {
+                    failure(response.errMsg);
+                }
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        if(failure)
+        {
+            failure([[self class] showMsgWithError:error]);
+        }
+    }];
+    
+    return openation;
+}
++ (AFHTTPRequestOperation *)RegisterPhoneRequestsuccess:(void (^)(NSString *))success
+                                                failure:(void (^)(NSString *))failure
+{
+    MZRegisterPhoneParam *param = [[MZRegisterPhoneParam alloc] init];
+    
+    AFHTTPRequestOperation *openation = [param bindRequestOperation];
+    
+    [[MZHttpServer servse] requestByOperation:openation success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if(success)
+        {
+            if(responseObject)
+            {
+                MZBaseResponse *response = [[MZBaseResponse alloc] initWithDictionary:responseObject];
+                
+                if ([[self class] isSuccessCode:response])
+                {
+                    success(responseObject[@"userId"]);
+                }
+                else
+                {
+                    failure(response.errMsg);
+                }
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        if(failure)
+        {
+            failure([[self class] showMsgWithError:error]);
+        }
+    }];
+    
+    return openation;
+}
+
+
++ (AFHTTPRequestOperation *)createAlbumRequest:(MZCreateAlbumParam *)param success:(void (^)(NSDictionary *object))success failure:(void (^)(NSString *errMsg,NSString * errCode))failure
+{
+    AFHTTPRequestOperation *openation = [param bindRequestOperation];
+    
+    [[MZHttpServer servse] requestByOperation:openation success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if(success)
+        {
+            if(responseObject)
+            {
+                MZBaseResponse *response = [[MZBaseResponse alloc] initWithDictionary:responseObject];
+                
+                if ([[self class] isSuccessCode:response])
+                {
+                    
+//                    success(response.body[0]);
+                    [self logInfoSuccessStatusCode:operation.response.statusCode responseObject:responseObject responseString:operation.responseString];
+                    
+
+                }
+                else
+                {
+                    failure(response.errMsg,response.errCode);
+                }
+            }
+//
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        if(failure)
+        {
+            failure([[self class] showMsgWithError:error],[NSString stringWithFormat:@"%ld",error.code]);
+        }
+    }];
+    
+    return openation;
+
+}
+
+
++(void)logInfoSuccessStatusCode:(NSInteger)statusCode responseObject:(id)responseObject responseString:(NSString*)responseString{
+    NSLog(@"请求状态: %@",@"success");
+    NSLog(@"状态码: %ld",(long)statusCode);
+    NSLog(@"请求响应结果: %@",responseObject);
+    NSLog(@"请求响应结果: %@",responseString);
+}
+
+@end

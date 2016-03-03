@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DynamicListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_backImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pke-Ou-hLc">
+                        <rect key="frame" x="8" y="15" width="304" height="165"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="165" id="4v7-Pu-G6c"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_backImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="2DC-5R-Mqf">
+                        <rect key="frame" x="21" y="176" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="7sm-bY-7Kp"/>
+                            <constraint firstAttribute="height" constant="25" id="RSl-2m-vMf"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015年8月15日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onF-6v-vi4">
+                        <rect key="frame" x="208" y="187" width="92" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.65098039220000004" green="0.71764705880000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小蘑菇&amp;小女孩" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esv-2J-VbL">
+                        <rect key="frame" x="56" y="181" width="80" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbB-Yf-0wQ">
+                        <rect key="frame" x="8" y="208" width="304" height="1"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="4LF-Fg-CB3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Pke-Ou-hLc" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="7QB-uN-PLP"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="TbB-Yf-0wQ" secondAttribute="bottom" constant="-8" id="EAW-m4-kgH"/>
+                    <constraint firstItem="2DC-5R-Mqf" firstAttribute="trailing" secondItem="Esv-2J-VbL" secondAttribute="trailing" constant="-69" id="FDf-3l-rmc"/>
+                    <constraint firstItem="2DC-5R-Mqf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="HZ0-Ni-zrw"/>
+                    <constraint firstItem="onF-6v-vi4" firstAttribute="trailing" secondItem="Pke-Ou-hLc" secondAttribute="trailing" constant="-12" id="NUm-z7-Av0"/>
+                    <constraint firstItem="onF-6v-vi4" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="2" id="Tta-4U-d54"/>
+                    <constraint firstItem="Pke-Ou-hLc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Xb8-bx-qFr"/>
+                    <constraint firstItem="2DC-5R-Mqf" firstAttribute="centerY" secondItem="Esv-2J-VbL" secondAttribute="centerY" id="aun-Kg-8hA"/>
+                    <constraint firstItem="Esv-2J-VbL" firstAttribute="leading" secondItem="2DC-5R-Mqf" secondAttribute="trailing" constant="10" id="cZ9-S8-fgY"/>
+                    <constraint firstItem="Pke-Ou-hLc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="jCR-xj-eJO"/>
+                    <constraint firstItem="2DC-5R-Mqf" firstAttribute="leading" secondItem="Esv-2J-VbL" secondAttribute="leading" constant="-52" id="jZ1-vw-Z5w"/>
+                    <constraint firstItem="2DC-5R-Mqf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="mK7-Yz-6V5"/>
+                    <constraint firstItem="TbB-Yf-0wQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="rOy-TR-GAA"/>
+                    <constraint firstItem="Esv-2J-VbL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="65" id="tBF-Qc-Bqz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="2DC-5R-Mqf" secondAttribute="bottom" id="tF0-oA-cze"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="TbB-Yf-0wQ" secondAttribute="trailing" id="xPn-uR-wP9"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="FDf-3l-rmc"/>
+                        <exclude reference="jZ1-vw-Z5w"/>
+                        <exclude reference="mK7-Yz-6V5"/>
+                        <exclude reference="tBF-Qc-Bqz"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="coverImage" destination="Pke-Ou-hLc" id="Fre-l2-KcF"/>
+                <outlet property="headImage" destination="2DC-5R-Mqf" id="T4f-JQ-KZ4"/>
+                <outlet property="lineView" destination="TbB-Yf-0wQ" id="dKb-Yh-gkj"/>
+                <outlet property="nameLabel" destination="Esv-2J-VbL" id="hrs-In-WzH"/>
+                <outlet property="timeLabel" destination="onF-6v-vi4" id="ZpN-D7-YAm"/>
+            </connections>
+            <point key="canvasLocation" x="300" y="405"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="main_backImage.png" width="150" height="152"/>
+    </resources>
+</document>

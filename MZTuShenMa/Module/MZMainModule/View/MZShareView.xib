@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MZShareView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFk-Cg-Snv">
+                    <rect key="frame" x="0.0" y="422" width="600" height="178"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZL-ii-4Zb">
+                            <rect key="frame" x="0.0" y="58" width="300" height="120"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="9bG-pE-6Nb"/>
+                            </constraints>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="85" maxX="85" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-40" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="wx">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didClickWeChatButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="rB3-ZR-SKU"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3U-gn-x0D">
+                            <rect key="frame" x="135" y="132" width="30" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.43529411759999997" green="0.50588235290000005" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGP-EJ-lbb">
+                            <rect key="frame" x="300" y="58" width="300" height="120"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="VLe-E3-qt6"/>
+                            </constraints>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="85" maxX="75" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-40" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="main_wechatFriend@2x">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didClickWeChatFriendButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="VEs-UC-28W"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="朋友圈" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Q2-2d-Vz5">
+                            <rect key="frame" x="428" y="132" width="45" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.55294117649999996" green="0.59607843140000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9b-og-CWW">
+                            <rect key="frame" x="511" y="-25" width="49" height="49"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Ko9-e3-Fcl"/>
+                            </constraints>
+                            <color key="tintColor" red="0.93725490199999995" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" image="share_cancel">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Ko9-e3-Fcl"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="didClickCancelButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="7wl-Fe-1qE"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_backImage" translatesAutoresizingMaskIntoConstraints="NO" id="kxx-h8-oG9">
+                            <rect key="frame" x="234" y="22" width="133" height="40"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="mGP-EJ-lbb" firstAttribute="top" secondItem="VFk-Cg-Snv" secondAttribute="top" id="4AY-Vu-9cU"/>
+                        <constraint firstAttribute="height" constant="178" id="4tc-R1-7Ux"/>
+                        <constraint firstItem="3ZL-ii-4Zb" firstAttribute="centerX" secondItem="d3U-gn-x0D" secondAttribute="centerX" id="5gT-3A-uot"/>
+                        <constraint firstItem="kxx-h8-oG9" firstAttribute="bottom" secondItem="3ZL-ii-4Zb" secondAttribute="bottom" id="9O7-Rh-Bh1"/>
+                        <constraint firstItem="2Q2-2d-Vz5" firstAttribute="top" secondItem="mGP-EJ-lbb" secondAttribute="bottom" constant="-46" id="CMe-ER-FLX"/>
+                        <constraint firstItem="3ZL-ii-4Zb" firstAttribute="leading" secondItem="VFk-Cg-Snv" secondAttribute="leading" id="GEB-ij-rlO"/>
+                        <constraint firstItem="h9b-og-CWW" firstAttribute="top" secondItem="VFk-Cg-Snv" secondAttribute="top" constant="-25" id="IjL-SK-CvE"/>
+                        <constraint firstItem="h9b-og-CWW" firstAttribute="leading" secondItem="VFk-Cg-Snv" secondAttribute="leading" constant="35" id="M47-qr-hTV"/>
+                        <constraint firstItem="kxx-h8-oG9" firstAttribute="top" secondItem="3ZL-ii-4Zb" secondAttribute="top" id="UbR-Eg-ILM"/>
+                        <constraint firstAttribute="bottom" secondItem="3ZL-ii-4Zb" secondAttribute="bottom" id="a03-Dx-twb"/>
+                        <constraint firstItem="3ZL-ii-4Zb" firstAttribute="top" secondItem="VFk-Cg-Snv" secondAttribute="top" id="aCV-SS-vCJ"/>
+                        <constraint firstItem="3ZL-ii-4Zb" firstAttribute="top" secondItem="kxx-h8-oG9" secondAttribute="bottom" constant="-20" id="bJR-rw-4ce"/>
+                        <constraint firstAttribute="trailing" secondItem="2Q2-2d-Vz5" secondAttribute="trailing" constant="116" id="brk-my-xND"/>
+                        <constraint firstAttribute="trailing" secondItem="mGP-EJ-lbb" secondAttribute="trailing" id="cC2-TB-xjh"/>
+                        <constraint firstItem="kxx-h8-oG9" firstAttribute="top" secondItem="VFk-Cg-Snv" secondAttribute="top" constant="22" id="dej-nf-jiQ"/>
+                        <constraint firstItem="mGP-EJ-lbb" firstAttribute="width" secondItem="3ZL-ii-4Zb" secondAttribute="width" id="hgW-lN-N6e"/>
+                        <constraint firstAttribute="trailing" secondItem="h9b-og-CWW" secondAttribute="trailing" constant="40" id="inb-NU-8v0"/>
+                        <constraint firstAttribute="bottom" secondItem="mGP-EJ-lbb" secondAttribute="bottom" id="kP0-Fa-y4U"/>
+                        <constraint firstItem="mGP-EJ-lbb" firstAttribute="centerX" secondItem="2Q2-2d-Vz5" secondAttribute="centerX" id="m7g-8O-PMM"/>
+                        <constraint firstItem="kxx-h8-oG9" firstAttribute="centerX" secondItem="VFk-Cg-Snv" secondAttribute="centerX" id="ot1-ei-h6y"/>
+                        <constraint firstItem="kxx-h8-oG9" firstAttribute="leading" secondItem="VFk-Cg-Snv" secondAttribute="leading" id="t7h-8J-qQu"/>
+                        <constraint firstAttribute="bottom" secondItem="h9b-og-CWW" secondAttribute="bottom" constant="20" id="uY3-Lf-D5x"/>
+                        <constraint firstItem="d3U-gn-x0D" firstAttribute="top" secondItem="3ZL-ii-4Zb" secondAttribute="bottom" constant="-46" id="xXn-9S-RKr"/>
+                        <constraint firstItem="mGP-EJ-lbb" firstAttribute="leading" secondItem="3ZL-ii-4Zb" secondAttribute="trailing" id="xtn-50-lwu"/>
+                        <constraint firstAttribute="trailing" secondItem="kxx-h8-oG9" secondAttribute="trailing" id="yyK-ic-sHB"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="aCV-SS-vCJ"/>
+                            <exclude reference="bJR-rw-4ce"/>
+                            <exclude reference="9O7-Rh-Bh1"/>
+                            <exclude reference="UbR-Eg-ILM"/>
+                            <exclude reference="t7h-8J-qQu"/>
+                            <exclude reference="yyK-ic-sHB"/>
+                            <exclude reference="4AY-Vu-9cU"/>
+                            <exclude reference="brk-my-xND"/>
+                            <exclude reference="M47-qr-hTV"/>
+                            <exclude reference="uY3-Lf-D5x"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="VFk-Cg-Snv" secondAttribute="trailing" id="9Ae-zN-8J4"/>
+                <constraint firstItem="VFk-Cg-Snv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="o4H-Mw-BgD"/>
+                <constraint firstAttribute="bottom" secondItem="VFk-Cg-Snv" secondAttribute="bottom" id="r8r-rz-gih"/>
+            </constraints>
+            <connections>
+                <outlet property="cancelButton" destination="h9b-og-CWW" id="vOw-Dc-ycw"/>
+                <outlet property="customView" destination="VFk-Cg-Snv" id="pac-u7-V5Q"/>
+                <outlet property="wechatButton" destination="3ZL-ii-4Zb" id="ZrD-EO-Ssh"/>
+                <outlet property="wechatFriendButton" destination="mGP-EJ-lbb" id="7x5-3C-pBt"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="main_wechatFriend@2x" width="48" height="48"/>
+        <image name="share_backImage" width="133" height="40"/>
+        <image name="share_cancel" width="49" height="49"/>
+        <image name="wx" width="48" height="48"/>
+    </resources>
+</document>

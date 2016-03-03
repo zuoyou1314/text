@@ -1,0 +1,93 @@
+//
+//  MZPraisePersonCollectionView.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/28.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZPraisePersonCollectionView.h"
+#import "MZPraisePersonCollectionViewCell.h"
+@implementation MZPraisePersonCollectionView
+
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
+
+static NSString * const praisePersonCellIdentifier = @" praisePersonCell";
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
+        
+        _collectionView=[[UICollectionView alloc] initWithFrame:rect(10, 10, self.frame.size.width-20, 50) collectionViewLayout:layout];
+        [_collectionView registerNib:[UINib nibWithNibName:@"MZPraisePersonCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:praisePersonCellIdentifier];
+        _collectionView.delegate=self;
+        _collectionView.dataSource=self;
+        _collectionView.showsHorizontalScrollIndicator=NO;
+        _collectionView.backgroundColor = [UIColor clearColor];
+        [self addSubview:_collectionView];
+        
+        
+//        _numberLabel =[UILabel alloc]initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>);
+        
+    }
+    
+    return self;
+}
+
+
+-(void)setDatas:(NSMutableArray *)datas{
+    _datas = datas;
+    [_collectionView reloadData];
+}
+
+#pragma mark -------- UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+      return 16;
+//    return _datas.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    MZPraisePersonCollectionViewCell* cell =  (MZPraisePersonCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:praisePersonCellIdentifier forIndexPath:indexPath];
+    //
+//    MOKOHomePageLiveItem *liveItem = [_datas objectAtIndex:indexPath.row];
+//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:liveItem.picUrl] placeholderImage:[UIImage imageNamed:@"event"]];
+//    cell.titleLabel.text = liveItem.text;
+//    cell.authorLabel.text = liveItem.nick;
+//    cell.livingLabel.text = liveItem.preDate;
+//    cell.numLbel.text = [NSString stringWithFormat:@"%d",liveItem.personCount];
+    //
+    
+    return cell;
+}
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(20,20);
+}
+
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+//{
+//    return 0;
+//}
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+//{
+//    return 0;
+//}
+
+
+
+@end

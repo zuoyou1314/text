@@ -1,0 +1,64 @@
+//
+//  MZBaseRequestParam.m
+//  ZhiXuan
+//
+//  Created by Wangxin on 15/6/5.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZBaseRequestParam.h"
+
+static NSTimeInterval const kTimeoutInterval = 60;
+
+@implementation MZBaseRequestParam
+- (id)init
+{
+    if(self = [super init])
+    {
+        _host = kHost;
+        
+        _port = kPort;
+        
+        _path = [self bindRequestPath];
+    }
+    return self;
+}
+
+- (NSString *) bindRequestPath
+{
+    return nil;
+}
+
+- (NSMutableDictionary *) bindRequestParam
+{
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    
+    return dict;
+}
+
+- (AFHTTPRequestOperation *) bindRequestOperation
+{
+    AFHTTPRequestOperation *openation;
+    
+    NSString *url = [NSString stringWithFormat:@"%@:%@/%@",self.host,self.port,self.path];
+#if DEBUG
+    NSLog(@"\nreuqestUrl is :\n%@\n",url);
+#endif
+    NSDictionary *dict = [self bindRequestParam];
+#if DEBUG
+    NSLog(@"\nrequestParam is :\n%@\n",dict);
+#endif
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:dict error:nil];
+    
+    [request setTimeoutInterval:kTimeoutInterval];
+    
+    openation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    openation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    openation.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    return openation;
+}
+
+@end

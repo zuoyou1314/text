@@ -1,0 +1,26 @@
+//
+//  MZMainCollectionViewCell.m
+//  MZTuShenMa
+//
+//  Created by zuo on 15/8/24.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZMainCollectionViewCell.h"
+
+@implementation MZMainCollectionViewCell
+
+- (void)awakeFromNib {
+    // Initialization code
+    
+    _backImage.layer.cornerRadius = 8;
+    _backImage.layer.masksToBounds = YES;
+    
+    
+    _iconImage.layer.cornerRadius = CGRectGetHeight([self.iconImage bounds])/2;
+    _iconImage.layer.masksToBounds = YES;
+    
+    
+}
+
+@end

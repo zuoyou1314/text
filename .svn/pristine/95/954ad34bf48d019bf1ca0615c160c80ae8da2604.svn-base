@@ -1,0 +1,80 @@
+//
+//  MZRegiSendMessageViewController.m
+//  MZTuShenMa
+//
+//  Created by Wangxin on 15/8/24.
+//  Copyright (c) 2015年 killer. All rights reserved.
+//
+
+#import "MZRegiSendMessageViewController.h"
+#import "MZPrintUserInfoViewController.h"
+#import "MZRequestManger+User.h"
+#import "UserHelp.h"
+
+static NSString * const kTitle = @"我们已发送 验证短信 到您的手机号\n\n";
+
+@interface MZRegiSendMessageViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *messageCodeTextField;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *reSendButton;
+@property (weak, nonatomic) IBOutlet UIButton *commitButton;
+
+@end
+
+@implementation MZRegiSendMessageViewController
+
+- (instancetype)init
+{
+    if(self = [super init])
+    {
+        self.view = [[[NSBundle mainBundle] loadNibNamed:@"MZRegiSendMessageViewController" owner:self options:nil] lastObject];
+        [self setUIDef];
+        [self setNavigationItem];
+    }
+    return self;
+}
+
+- (void) setUIDef
+{
+    [self.messageCodeTextField.layer setCornerRadius:5.0f];
+    [self.messageCodeTextField.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [self.messageCodeTextField.layer setBorderWidth:.3f];
+    
+    [self.reSendButton.layer setCornerRadius:5.0f];
+    
+    [self.commitButton.layer setCornerRadius:25.0f];
+    
+    NSString *phoneNum = [NSString stringWithFormat:@"+86 %@",[[UserHelp sharedUserHelper] userName]];
+    [self setPhoneNumText:phoneNum];
+}
+
+- (void) setNavigationItem
+{
+    [self setNavigationDefaultLeftBarButton];
+}
+
+- (void) setPhoneNumText:(NSString *)phoneNum
+{
+    NSMutableAttributedString *aString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",kTitle,phoneNum]];
+    [aString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, kTitle.length)];
+    [aString addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(kTitle.length, phoneNum.length)];
+    [self.titleLabel setAttributedText:aString];
+}
+
+- (IBAction)commitButtonTouchUpInside:(id)sender
+{
+    if(sender && [sender isKindOfClass:[UIButton class]])
+    {
+        __weak typeof(self) weakSelf = self;
+        [self showHoldView];
+        [MZRequestManger RegisterPhoneRequestsuccess:^(NSString *object) {
+            [weakSelf hideHUD];
+            [weakSelf.navigationController pushViewController:[[MZPrintUserInfoViewController alloc] init] animated:YES];
+        } failure:^(NSString *errMsg) {
+            [weakSelf hideHUD];
+            [weakSelf showHUDWithText:errMsg];
+        }];
+    }
+}
+
+@end

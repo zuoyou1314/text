@@ -1,0 +1,22 @@
+//
+//  ZhiXuan-Prefix.pch
+//  ZhiXuan
+//
+//  Created by gao wei on 15/6/3.
+//  Copyright (c) 2015年 YunTuMingZhi. All rights reserved.
+//
+
+#ifndef ZhiXuan_ZhiXuan_Prefix_pch
+#define ZhiXuan_ZhiXuan_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#include "Macros.h"
+
+#import "HttpServer/RequestInferface.h"
+#import "AppDelegate.h"
+
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+#endif
